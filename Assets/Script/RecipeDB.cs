@@ -40,6 +40,6 @@ public static class RecipeDB
         DishType.Seblak => "Seblak",
         DishType.Teh => "Teh",
         DishType.Kopi => "Kopi",
-        _ => "—"
+        _ => "ï¿½"
     };
 }
