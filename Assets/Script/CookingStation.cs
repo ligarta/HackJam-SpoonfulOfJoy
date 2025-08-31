@@ -5,6 +5,7 @@ using System;
 
 public class CookingStation : MonoBehaviour
 {
+    public event Action<IngredientType> OnIngredientPicked;
     public event Action<DishType> OnCooked;      // dish is successfully cooked
     public event Action<string> OnFeedback;      // UI message
 
@@ -19,7 +20,7 @@ public class CookingStation : MonoBehaviour
             OnFeedback?.Invoke("Sudah 3 bahan. Masak dulu ya.");
             return;
         }
-
+        OnIngredientPicked?.Invoke(ing);
         buffer.Add(ing);
         OnFeedback?.Invoke($"Tambahkan {ing}.");
     }
