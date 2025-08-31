@@ -21,8 +21,6 @@ public class DialogNode : ScriptableObject
     /// </summary>
     public DialogNode nextNode;
 
-    [SerializeField]public float[] condition;
-    [SerializeField]public float[] stat;
 
 
 /// <summary>

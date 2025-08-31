@@ -11,11 +11,10 @@ public class DialogManager : MonoBehaviour
 
     public GameObject panel;
     private bool inChoice = false;
-    HashSet<int> setUnik = new HashSet<int>();
     bool isChosed = false;
     [SerializeField] private float anxStat;
     Choice nextNode;
-    public TextMeshProUGUI timer;
+    // public TextMeshProUGUI timer;
     [Header("UI Elements")]
     [SerializeField] TMP_Text speakerNametext;
     [SerializeField] TMP_Text dialogText;
@@ -41,7 +40,6 @@ public class DialogManager : MonoBehaviour
     int currentLineIndex = 0;
     bool isTyping = false;
     public GameObject shuffleBtn;
-    float time = 10;
     bool isTimeOver = false;
     [SerializeField] private String NextScene;
     [SerializeField] private String chatWith;
@@ -55,7 +53,7 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        timer.SetText("");
+        // timer.SetText("");
         dialogPanel.SetActive(false);
         //choicePanel.SetActive(false);
 
@@ -253,7 +251,7 @@ public class DialogManager : MonoBehaviour
         if (isChosed)
         {
             ///Tunggu beberapa saat sebelum menampilkan node selanjutnya
-            timer.text = "";
+            // timer.text = "";
             inChoice = false;
             isChosed = false;
             int a = 2000;
@@ -292,9 +290,5 @@ public class DialogManager : MonoBehaviour
         //SceneManager.LoadScene("Start Screen");
     }
 
-    public void setAnxStat(float stat)
-    {
-        anxStat -= stat;
-    }
 }
 
