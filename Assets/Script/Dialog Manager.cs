@@ -24,6 +24,8 @@ public class DialogManager : MonoBehaviour
     [SerializeField] TMP_Text speakerNametext;   // now optional
     [SerializeField] TMP_Text dialogText;
     [SerializeField] GameObject dialogPanel;
+    [SerializeField] GameObject choicePanel;   // removed choice
+    [SerializeField] GameObject prefebChoices;   // removed choice
     //[SerializeField] Button choiceButtonPrefab;   // removed choice
     // [SerializeField] public Button progresButton;   // not needed anymore
 
@@ -42,11 +44,9 @@ public class DialogManager : MonoBehaviour
     DialogNode currentNode;
     int currentLineIndex = 0;
     bool isTyping = false;
-    // public GameObject shuffleBtn;   // not used
-    // bool isTimeOver = false;        // removed choice/timer
+    bool isChoice = false;   // removed choice
     [SerializeField] private String NextScene;
     [SerializeField] private String chatWith;
-    //[SerializeField] GameObject PopUpGameOver;
 
     void Start()
     {
@@ -58,6 +58,7 @@ public class DialogManager : MonoBehaviour
     public void StartDialog(DialogNode startNode)
     {
         dialogPanel.SetActive(true);
+        LeanTween.scale(dialogPanel, new Vector3(1, 1, 1), 0.5f).setEaseOutExpo();
         currentNode = startNode;
         currentLineIndex = 0;
         DisplayCurrentLine();
@@ -65,14 +66,12 @@ public class DialogManager : MonoBehaviour
 
     void DisplayCurrentLine()
     {
-        if (currentNode.lines.Length == currentLineIndex /*&& currentNode.isChoiceNull()*/)
+        if (currentNode.lines.Length == currentLineIndex && currentNode.isChoiceNull())
         {
             if (currentNode.nextNode == null)
             {
-                // PlayerPrefs.SetFloat("anxStat", anxStat);   // removed anx stat
                 EndDialog();
                 PlayerPrefs.SetString("sceneBefore", "chat");
-                //SceneManager.LoadScene(currentNode.nextScene);
             }
             else
             {
@@ -93,10 +92,25 @@ public class DialogManager : MonoBehaviour
             }
 
             StartCoroutine(AnimateAndType(line));
+
         }
+        /// jika baris dialog habis dan memiliki pilihan
         else
         {
-            // choices removed
+            if (!currentNode.isChoiceNull())
+            {
+                showChoices();
+            }
+            else if (currentNode.nextNode != null)
+            {
+                currentNode = currentNode.nextNode;
+                currentLineIndex = 0;
+                DisplayCurrentLine();
+            }
+            else
+            {
+                EndDialog();
+            }
         }
     }
 
@@ -151,6 +165,7 @@ public class DialogManager : MonoBehaviour
 
     public void clicking()
     {
+        if (isChoice) return;   // removed choice
         audioSource.clip = audioClick;
         audioSource.Play();
 
@@ -192,19 +207,50 @@ public class DialogManager : MonoBehaviour
             speakerNametext.text = "";
         }
         OnDialogFinished?.Invoke();
+        LeanTween.scale(dialogPanel, new Vector3(0, 0, 0), 0.5f).setEaseInExpo().setOnComplete(() =>
+        {
+            dialogPanel.SetActive(false);
+        });
     }
 
     public void Restart()
     {
-        // PlayerPrefs.SetFloat("anxStat", 80);   // removed anx stat
-        PlayerPrefs.DeleteKey("x");
-        PlayerPrefs.DeleteKey("y");
-        PlayerPrefs.SetInt(chatWith, 0);
-        //SceneManager.LoadScene("SC Chapter 1");
     }
 
     public void Menu()
     {
         //SceneManager.LoadScene("Start Screen");
+    }
+
+    public void showChoices()
+    {
+        isChoice = true;   // removed choice
+        choicePanel.SetActive(true);
+        for (int i = 0; i < currentNode.choices.Length; i++)
+        {
+            GameObject choiceObj = Instantiate(prefebChoices, choicePanel.transform);
+            choiceObj.GetComponentInChildren<TMP_Text>().text = currentNode.choices[i].choiceText;
+            int choiceIndex = i;
+            choiceObj.GetComponent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceIndex));
+        }
+        LeanTween.scale(choicePanel, new Vector3(1, 1, 1), 0.5f).setEaseOutExpo();
+    }
+
+    public void OnChoiceSelected(int index)
+    {
+        LeanTween.scale(choicePanel, new Vector3(0, 0, 0), 0.5f).setEaseInExpo().setOnComplete(() =>
+        {
+            choicePanel.SetActive(false);
+            foreach (Transform child in choicePanel.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        });
+
+        Debug.Log("Choice selected: " + index);
+        currentNode = currentNode.choices[index].nextNode;
+        currentLineIndex = 0;
+        DisplayCurrentLine();
+        isChoice = false;   // removed choice
     }
 }

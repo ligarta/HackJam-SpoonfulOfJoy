@@ -16,6 +16,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2ee288d2977f7b479e0ea9fc04181de, type: 2}
   - {fileID: 11400000, guid: ec76c972c9b537d4c8a215e93cb95079, type: 2}
   - {fileID: 11400000, guid: a273471cc26e2244abe67f9cf44e4cfa, type: 2}
-  choices: []
+  choices:
+  - choiceText: A
+    nextNode: {fileID: 11400000, guid: 0bc735d5552940c439e45a94d0f685bb, type: 2}
+  - choiceText: B
+    nextNode: {fileID: 11400000, guid: 4ad567f3800450241b9fc628b69f016a, type: 2}
+  - choiceText: C
+    nextNode: {fileID: 11400000, guid: c480ab128a8117c4dbaa6fdce6e10219, type: 2}
   nextScene: 
   nextNode: {fileID: 0}
