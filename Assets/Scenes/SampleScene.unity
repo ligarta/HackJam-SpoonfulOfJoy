@@ -1091,6 +1091,8 @@ GameObject:
   - component: {fileID: 593100670}
   - component: {fileID: 593100669}
   - component: {fileID: 593100668}
+  - component: {fileID: 593100672}
+  - component: {fileID: 593100671}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1154,6 +1156,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &593100671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593100667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df586d2e077ac24bb2f525e367fa88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogManager
+  panel: {fileID: 0}
+  speakerNametext: {fileID: 0}
+  dialogText: {fileID: 0}
+  dialogPanel: {fileID: 0}
+  effectAudioSource: {fileID: 0}
+  textSpeed: 0.05
+  audioClick: {fileID: 0}
+  audioSource: {fileID: 0}
+  audioType: {fileID: 0}
+  NextScene: 
+  chatWith: 
+--- !u!114 &593100672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593100667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca96d366efd6db34485f4078bb31d46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DayManager
+  days:
+  - {fileID: 0}
+  dialogManager: {fileID: 593100671}
+  cookingStation: {fileID: 593100668}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,7 +1754,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6856706101430673939, guid: 90897486ed77fd34a98d967facef0806, type: 3}
+  m_Sprite: {fileID: 224610002397427845, guid: a27443d490e50a24a8b88eefd18fef6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1734,7 +1775,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
+  m_LocalScale: {x: 1.38, y: 1.38, z: 1.38}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1895,7 +1936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &850242020
 RectTransform:
   m_ObjectHideFlags: 0
