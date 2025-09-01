@@ -6,11 +6,11 @@ using TMPro;
 public class CookingUIManager : MonoBehaviour
 {
     public CookingStation station;
-    public List<Image> ingredientSlots;  // Inspector (3 slots)
+    public List<Image> ingredientSlots;  
     public Sprite defaultSprite;
-    public List<Sprite> ingredientSprites; // follow the enum order
+    public List<Sprite> ingredientSprites; 
     public TextMeshProUGUI testText;
-
+    public GameObject IngredientSelectionPanel;
     private int currentSlot = 0;
 
     void Start()
@@ -44,5 +44,9 @@ public class CookingUIManager : MonoBehaviour
             slot.sprite = defaultSprite;
         }
         currentSlot = 0;
+    }
+    public void SlideFirstStageCookingUI()
+    {
+
     }
 }

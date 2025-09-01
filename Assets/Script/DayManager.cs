@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class DayManager : MonoBehaviour
 {
     public List<DayData> days;  
     public DialogManager dialogManager;
     public CookingStation cookingStation;
-
+    public event Action _CookingEvent;
     private int currentDayIndex;
     private int currentEventIndex;
 
@@ -37,6 +38,7 @@ public class DayManager : MonoBehaviour
         {
             cookingStation.gameObject.SetActive(true);
             cookingStation.OnCooked += HandleCookingFinished;
+            _CookingEvent?.Invoke();
         }
         else
         {
