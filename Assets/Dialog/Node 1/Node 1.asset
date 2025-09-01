@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Node 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   lines:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f2ee288d2977f7b479e0ea9fc04181de, type: 2}
+  - {fileID: 11400000, guid: ec76c972c9b537d4c8a215e93cb95079, type: 2}
+  - {fileID: 11400000, guid: a273471cc26e2244abe67f9cf44e4cfa, type: 2}
   choices: []
   nextScene: 
   nextNode: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Line 3
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
   speakerName: Joko
-  text: 123
+  text: 456
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
