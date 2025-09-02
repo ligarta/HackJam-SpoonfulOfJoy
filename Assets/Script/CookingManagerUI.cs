@@ -10,7 +10,6 @@ public class CookingUIManager : MonoBehaviour
     public Sprite defaultSprite;
     public List<Sprite> ingredientSprites; 
     public TextMeshProUGUI testText;
-    public GameObject IngredientSelectionPanel;
     private int currentSlot = 0;
 
     void Start()
@@ -18,6 +17,7 @@ public class CookingUIManager : MonoBehaviour
         station.OnCooked += ShowCookResult;
         station.OnIngredientPicked += HandleIngredientPicked;
         station.OnFeedback += ShowFeedback;
+        SlideFirstStageCookingUI();
     }
 
     void HandleIngredientPicked(IngredientType ing)
@@ -45,8 +45,81 @@ public class CookingUIManager : MonoBehaviour
         }
         currentSlot = 0;
     }
+
+    [SerializeField] private RectTransform cookingUIPanel;
+    [SerializeField] private float slideDuration = 1.50f;
+    [SerializeField] private Vector2 targetAnchoredPos = new Vector2(25f, 0f);
     public void SlideFirstStageCookingUI()
+    {
+        if (cookingUIPanel == null) return;
+        Vector2 startPos = new Vector2(Screen.width, targetAnchoredPos.y);
+        cookingUIPanel.anchoredPosition = startPos;
+        LeanTween.move(cookingUIPanel, targetAnchoredPos, slideDuration)
+            .setEase(LeanTweenType.easeOutExpo);
+    }
+    [SerializeField] private RectTransform secondStageObject; // Ingredient part
+    [SerializeField] private float secondStageMoveAmount = 520f;
+    [SerializeField] private float secondStageDuration = 0.8f;
+
+    [SerializeField] private List<GameObject> cookingSequenceImages;
+    [SerializeField] private float sequenceDelay = 1f; // seconds between images
+
+    public void SlideSecondStageCookingUI()
+    {
+        if (secondStageObject == null) return;
+
+        Vector2 startPos = secondStageObject.anchoredPosition;
+        Vector2 targetPos = startPos + new Vector2(0f, secondStageMoveAmount);
+
+        LeanTween.move(secondStageObject, targetPos, secondStageDuration)
+            .setEase(LeanTweenType.easeOutCubic)
+            .setOnComplete(() =>
+            {
+                StartCookingSequence();
+            });
+    }
+
+    private void StartCookingSequence()
+    {
+        if (cookingSequenceImages == null || cookingSequenceImages.Count == 0) return;
+
+        // Hide all first
+        foreach (var img in cookingSequenceImages)
+            img.SetActive(false);
+
+        float delay = 0f;
+        for (int i = 0; i < cookingSequenceImages.Count; i++)
+        {
+            int index = i;
+            LeanTween.delayedCall(delay, () =>
+            {
+                cookingSequenceImages[index].SetActive(true);
+            });
+            delay += sequenceDelay;
+        }
+
+        // After all sequence images shown, go to Stage 3
+        LeanTween.delayedCall(delay, () =>
+        {
+            SlideThirdStageCookingUI();
+        });
+    }
+    public void ResetCookingUI()
     {
 
     }
+    public void debug()
+    {
+        SlideSecondStageCookingUI();
+    }
+    [SerializeField] private Vector2 thirdStageTargetPos = new Vector2(-960f, 0f);
+    [SerializeField] private float thirdStageDuration = 1.0f;
+    public void SlideThirdStageCookingUI()
+    {
+        if (cookingUIPanel == null) return;
+
+        LeanTween.move(cookingUIPanel, thirdStageTargetPos, thirdStageDuration)
+            .setEase(LeanTweenType.easeInOutCubic);
+    }
+
 }

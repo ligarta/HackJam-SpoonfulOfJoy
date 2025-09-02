@@ -51,13 +51,13 @@ public class DayManager : MonoBehaviour
     {
         dialogManager.OnDialogFinished -= HandleDialogFinished;
         currentEventIndex++;
-        RunNextEvent();
+        //RunNextEvent();
     }
 
     void HandleCookingFinished(DishType dish)
     {
         cookingStation.OnCooked -= HandleCookingFinished;
         currentEventIndex++;
-        RunNextEvent();
+        //RunNextEvent();
     }
 }

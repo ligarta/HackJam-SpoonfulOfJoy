@@ -74,11 +74,27 @@ public class GameManager : MonoBehaviour
     public void CookingToDialogue()
     {
         currentState = GameState.Dialogue;
-        currentCamera.transform.position = OriginalCameraPosition.position;
+
+        LeanTween.cancel(currentCamera.gameObject);
+
+        float duration = 2f;
+
+        // Tween position
+        LeanTween.move(currentCamera.gameObject, OriginalCameraPosition.position, duration).setEase(LeanTweenType.easeInOutQuad);
+
+        // Tween zoom reset
         if (currentCamera.orthographic)
-            currentCamera.orthographicSize = 10f; 
+        {
+            LeanTween.value(currentCamera.gameObject, currentCamera.orthographicSize, 10f, duration)
+                .setEase(LeanTweenType.easeInOutQuad)
+                .setOnUpdate((float val) => currentCamera.orthographicSize = val);
+        }
         else
-            currentCamera.fieldOfView = 60f;
+        {
+            LeanTween.value(currentCamera.gameObject, currentCamera.fieldOfView, 60f, duration)
+                .setEase(LeanTweenType.easeInOutQuad)
+                .setOnUpdate((float val) => currentCamera.fieldOfView = val);
+        }
     }
 
     // Camera focus metod
@@ -93,35 +109,33 @@ public class GameManager : MonoBehaviour
 
         Vector3 targetPos = currentCamera.transform.position + (currentSelectedCustomerSlot.transform.position - desiredWorldPos);
 
-        StopAllCoroutines();
-        StartCoroutine(SmoothFocus(targetPos, zoomSize, 3f));
-    }
+        // Kill any existing tweens on the camera to avoid conflicts
+        LeanTween.cancel(currentCamera.gameObject);
 
-    private IEnumerator SmoothFocus(Vector3 targetPos, float targetZoom, float duration)
-    {
-        float elapsed = 0f;
+        float duration = 3f;
 
-        Vector3 startPos = currentCamera.transform.position;
-        float startZoom = currentCamera.orthographic ? currentCamera.orthographicSize : currentCamera.fieldOfView;
+        // Tween position
+        LeanTween.move(currentCamera.gameObject, targetPos, duration).setEase(LeanTweenType.easeInOutQuad);
 
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / duration;
-
-            currentCamera.transform.position = Vector3.Lerp(startPos, targetPos, t);
-
-            if (currentCamera.orthographic)
-                currentCamera.orthographicSize = Mathf.Lerp(startZoom, targetZoom, t);
-            else
-                currentCamera.fieldOfView = Mathf.Lerp(startZoom, targetZoom, t);
-
-            yield return null;
-        }
-        currentCamera.transform.position = targetPos;
+        // Tween zoom
         if (currentCamera.orthographic)
-            currentCamera.orthographicSize = targetZoom;
+        {
+            LeanTween.value(currentCamera.gameObject, currentCamera.orthographicSize, zoomSize, duration)
+                .setEase(LeanTweenType.easeInOutQuad)
+                .setOnUpdate((float val) =>
+                {
+                    currentCamera.orthographicSize = val;
+                });
+        }
         else
-            currentCamera.fieldOfView = targetZoom;
+        {
+            LeanTween.value(currentCamera.gameObject, currentCamera.fieldOfView, zoomSize, duration)
+                .setEase(LeanTweenType.easeInOutQuad)
+                .setOnUpdate((float val) =>
+                {
+                    currentCamera.fieldOfView = val;
+                });
+        }
     }
+
 }
