@@ -12,6 +12,7 @@ public class DialogManager : MonoBehaviour
     public event Action OnDialogFinished;
 
     public GameObject panel;
+    [SerializeField] private SpriteRenderer characterSprite;
 
     // private bool inChoice = false;   // removed choice
     // bool isChosed = false;           // removed choice
@@ -51,8 +52,7 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        // timer.SetText("");
-        dialogPanel.SetActive(false);
+        dialogPanel.SetActive(false);;
     }
 
     public void StartDialog(DialogNode startNode)
@@ -90,8 +90,8 @@ public class DialogManager : MonoBehaviour
             {
                 speakerNametext.text = line.speakerName;
             }
-
-            StartCoroutine(AnimateAndType(line));
+            setSprite(line);
+            StartCoroutine(TypeText(line.text));
 
         }
         //    /// jika baris dialog habis dan memiliki pilihan
@@ -113,14 +113,6 @@ public class DialogManager : MonoBehaviour
         //        }
         //    }
         //}
-    }
-    IEnumerator AnimateAndType(DialogLine line)
-    {
-        if (line.animationType != Animation.None)
-        {
-            yield return new WaitForSeconds(line.durasi);
-        }
-        yield return StartCoroutine(TypeText(line.text));
     }
 
     IEnumerator TypeText(string text)
@@ -227,6 +219,45 @@ public class DialogManager : MonoBehaviour
     public void Menu()
     {
         //SceneManager.LoadScene("Start Screen");
+    }
+
+    public void setSprite(DialogLine line)
+    {
+        if (line.charSprite != null && characterSprite != null)
+        {
+            characterSprite.color = new Color(1f, 1f, 1f, 0f);
+
+            characterSprite.sprite = line.charSprite;
+
+            LeanTween.sequence()
+                .append(LeanTween.value(gameObject, 0f, 1f, 0.5f)
+                    .setEaseInOutQuad()
+                    .setOnUpdate((float val) =>
+                    {
+                        characterSprite.color = new Color(1f, 1f, 1f, val);
+                    }))
+                .append(() => ShakeSprite(line.isShake));
+        }
+    }
+
+    private void ShakeSprite(bool isShake)
+    {
+        if (!isShake) return;
+        Vector3 originalPos = characterSprite.transform.position;
+        float shakeDuration = 0.5f;
+        float shakeAmount = 0.2f;
+
+        LeanTween.value(gameObject, 0f, 1f, shakeDuration)
+            .setEaseShake()
+            .setOnUpdate((float val) =>
+            {
+                Vector3 randomPos = originalPos + UnityEngine.Random.insideUnitSphere * shakeAmount;
+                characterSprite.transform.position = new Vector3(randomPos.x, randomPos.y, originalPos.z);
+            })
+            .setOnComplete(() =>
+            {
+                characterSprite.transform.position = originalPos;
+            });
     }
 }
 //    public void showChoices()

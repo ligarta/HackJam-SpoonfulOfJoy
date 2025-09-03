@@ -10,11 +10,8 @@ public class StartDialog : MonoBehaviour
     /// Node awal dari dialog
     /// </summary>
     [SerializeField] DialogNode startNode;
-    void Start()
-    {
-        Invoke("StartThis", 1f);
-    }
-    void StartThis()
+
+    public void StartThis()
     {
         manager.StartDialog(startNode);
         
