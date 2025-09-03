@@ -17,6 +17,9 @@ public class CookingUIManager : MonoBehaviour
         station.OnCooked += ShowCookResult;
         station.OnIngredientPicked += HandleIngredientPicked;
         station.OnFeedback += ShowFeedback;
+        originalcookingUiPanel = cookingUIPanel;
+        originalSecondStageObjectPosition = secondStageObject;
+        originalSecondObjectPos = secondStageObject.anchoredPosition;
         SlideFirstStageCookingUI();
     }
 
@@ -49,8 +52,10 @@ public class CookingUIManager : MonoBehaviour
     [SerializeField] private RectTransform cookingUIPanel;
     [SerializeField] private float slideDuration = 1.50f;
     [SerializeField] private Vector2 targetAnchoredPos = new Vector2(25f, 0f);
+    private RectTransform originalcookingUiPanel;
     public void SlideFirstStageCookingUI()
     {
+        ResetCookingUI();
         if (cookingUIPanel == null) return;
         Vector2 startPos = new Vector2(Screen.width, targetAnchoredPos.y);
         cookingUIPanel.anchoredPosition = startPos;
@@ -63,11 +68,11 @@ public class CookingUIManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> cookingSequenceImages;
     [SerializeField] private float sequenceDelay = 1f; // seconds between images
-
+    private RectTransform originalSecondStageObjectPosition;
+    private Vector2 originalSecondObjectPos;
     public void SlideSecondStageCookingUI()
     {
         if (secondStageObject == null) return;
-
         Vector2 startPos = secondStageObject.anchoredPosition;
         Vector2 targetPos = startPos + new Vector2(0f, secondStageMoveAmount);
 
@@ -97,8 +102,6 @@ public class CookingUIManager : MonoBehaviour
             });
             delay += sequenceDelay;
         }
-
-        // After all sequence images shown, go to Stage 3
         LeanTween.delayedCall(delay, () =>
         {
             SlideThirdStageCookingUI();
@@ -106,7 +109,13 @@ public class CookingUIManager : MonoBehaviour
     }
     public void ResetCookingUI()
     {
-
+        foreach(var img in cookingSequenceImages)
+        {
+            img.SetActive(false);
+        }
+        secondStageObject.anchoredPosition = originalSecondObjectPos;
+        cookingUIPanel = originalcookingUiPanel;
+        secondStageObject = originalSecondStageObjectPosition;
     }
     public void debug()
     {

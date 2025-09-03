@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using TMPro;
 
 public class DayManager : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class DayManager : MonoBehaviour
     public event Action _CookingEvent;
     private int currentDayIndex;
     private int currentEventIndex;
-
+    [SerializeField] TextMeshProUGUI[] dialogText;
+    [SerializeField] TextMeshProUGUI[] orderText;
+    [SerializeField] GameObject[] dialogtextPanels;
+    [SerializeField] GameObject[] orderTextPanels;
+    [SerializeField] Animator[] CustormersAnimator;
     void Start()
     {
         StartDay(0); 
     }
-
     void StartDay(int index)
     {
         currentDayIndex = index;
@@ -26,7 +30,6 @@ public class DayManager : MonoBehaviour
     void RunNextEvent()
     {
         var day = days[currentDayIndex];
-
         if (currentEventIndex >= day.events.Count)
         {
             Debug.Log($"Day {day.dayNumber} finished!");
@@ -42,6 +45,7 @@ public class DayManager : MonoBehaviour
         }
         else
         {
+            
             dialogManager.StartDialog(ev.dialogToStart);
             dialogManager.OnDialogFinished += HandleDialogFinished;
         }
@@ -51,13 +55,44 @@ public class DayManager : MonoBehaviour
     {
         dialogManager.OnDialogFinished -= HandleDialogFinished;
         currentEventIndex++;
-        //RunNextEvent();
+        RunNextEvent();
     }
-
+    private DishType currentDish;
     void HandleCookingFinished(DishType dish)
     {
+        currentDish = dish;
         cookingStation.OnCooked -= HandleCookingFinished;
-        currentEventIndex++;
-        //RunNextEvent();
+    }
+    public void cookingConfirmed()
+    {
+        var ev = days[currentDayIndex].events[currentEventIndex];
+        bool success = (currentDish == ev.correctDishType);
+
+        if (success)
+        {
+            dialogManager.StartDialog(ev.correctFoodDialog);
+        }
+        else
+        {
+            dialogManager.StartDialog(ev.incorrectFoodDialog);
+        }
+        dialogManager.OnDialogFinished += HandleDialogFinished;
+    }
+    public void assignCurrentDialogText(int currentIndex)
+    {
+        resetDialogBox();
+        dialogText[currentIndex].gameObject.SetActive(true);
+        dialogManager.SetdialogText(dialogText[currentIndex]);
+    }
+    public void resetDialogBox()
+    {
+        foreach (TextMeshProUGUI a in dialogText)
+        {
+            a.gameObject.SetActive(false);
+        }
+        foreach (TextMeshProUGUI b in orderText)
+        {
+            b.gameObject.SetActive(false);
+        }
     }
 }

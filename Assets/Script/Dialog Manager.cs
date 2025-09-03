@@ -94,26 +94,26 @@ public class DialogManager : MonoBehaviour
             StartCoroutine(AnimateAndType(line));
 
         }
-        /// jika baris dialog habis dan memiliki pilihan
-        else
-        {
-            if (!currentNode.isChoiceNull())
-            {
-                showChoices();
-            }
-            else if (currentNode.nextNode != null)
-            {
-                currentNode = currentNode.nextNode;
-                currentLineIndex = 0;
-                DisplayCurrentLine();
-            }
-            else
-            {
-                EndDialog();
-            }
-        }
+        //    /// jika baris dialog habis dan memiliki pilihan
+        //    else
+        //    {
+        //        if (!currentNode.isChoiceNull())
+        //        {
+        //            showChoices();
+        //        }
+        //        else if (currentNode.nextNode != null)
+        //        {
+        //            currentNode = currentNode.nextNode;
+        //            currentLineIndex = 0;
+        //            DisplayCurrentLine();
+        //        }
+        //        else
+        //        {
+        //            EndDialog();
+        //        }
+        //    }
+        //}
     }
-
     IEnumerator AnimateAndType(DialogLine line)
     {
         if (line.animationType != Animation.None)
@@ -188,7 +188,14 @@ public class DialogManager : MonoBehaviour
             DisplayCurrentLine();
         }
     }
-
+    public void SetdialogText(TextMeshProUGUI text)
+    {
+        dialogText = text;
+    }
+    public void SetDialogPanel(GameObject panel)
+    {
+        dialogPanel = panel;
+    }
     void Update()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)   // New Input System
@@ -221,36 +228,36 @@ public class DialogManager : MonoBehaviour
     {
         //SceneManager.LoadScene("Start Screen");
     }
-
-    public void showChoices()
-    {
-        isChoice = true;   // removed choice
-        choicePanel.SetActive(true);
-        for (int i = 0; i < currentNode.choices.Length; i++)
-        {
-            GameObject choiceObj = Instantiate(prefebChoices, choicePanel.transform);
-            choiceObj.GetComponentInChildren<TMP_Text>().text = currentNode.choices[i].choiceText;
-            int choiceIndex = i;
-            choiceObj.GetComponent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceIndex));
-        }
-        LeanTween.scale(choicePanel, new Vector3(1, 1, 1), 0.5f).setEaseOutExpo();
-    }
-
-    public void OnChoiceSelected(int index)
-    {
-        LeanTween.scale(choicePanel, new Vector3(0, 0, 0), 0.5f).setEaseInExpo().setOnComplete(() =>
-        {
-            choicePanel.SetActive(false);
-            foreach (Transform child in choicePanel.transform)
-            {
-                Destroy(child.gameObject);
-            }
-        });
-
-        Debug.Log("Choice selected: " + index);
-        currentNode = currentNode.choices[index].nextNode;
-        currentLineIndex = 0;
-        DisplayCurrentLine();
-        isChoice = false;   // removed choice
-    }
 }
+//    public void showChoices()
+//    {
+//        isChoice = true;   // removed choice
+//        choicePanel.SetActive(true);
+//        for (int i = 0; i < currentNode.choices.Length; i++)
+//        {
+//            GameObject choiceObj = Instantiate(prefebChoices, choicePanel.transform);
+//            choiceObj.GetComponentInChildren<TMP_Text>().text = currentNode.choices[i].choiceText;
+//            int choiceIndex = i;
+//            choiceObj.GetComponent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceIndex));
+//        }
+//        LeanTween.scale(choicePanel, new Vector3(1, 1, 1), 0.5f).setEaseOutExpo();
+//    }
+
+//    public void OnChoiceSelected(int index)
+//    {
+//        LeanTween.scale(choicePanel, new Vector3(0, 0, 0), 0.5f).setEaseInExpo().setOnComplete(() =>
+//        {
+//            choicePanel.SetActive(false);
+//            foreach (Transform child in choicePanel.transform)
+//            {
+//                Destroy(child.gameObject);
+//            }
+//        });
+
+//        Debug.Log("Choice selected: " + index);
+//        currentNode = currentNode.choices[index].nextNode;
+//        currentLineIndex = 0;
+//        DisplayCurrentLine();
+//        isChoice = false;   // removed choice
+//    }
+//}

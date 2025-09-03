@@ -7,10 +7,8 @@ public enum GameState
     Cooking,
     Paused,
 }
-
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Instance { get; private set; }
 
     [Header("References")]
