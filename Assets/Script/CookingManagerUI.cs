@@ -9,6 +9,8 @@ public class CookingUIManager : MonoBehaviour
     public List<Image> ingredientSlots;  
     public Sprite defaultSprite;
     public List<Sprite> ingredientSprites; 
+    public List<Sprite> menuSprites;
+    public Image menuResult;
     public TextMeshProUGUI testText;
     private int currentSlot = 0;
 
@@ -38,6 +40,8 @@ public class CookingUIManager : MonoBehaviour
     }
     void ShowCookResult(DishType dish)
     {
+        menuResult.sprite = GetMenuSprite(dish);
+        menuResult.SetNativeSize();
         testText.text = RecipeDB.DishDisplayName(dish);
     }
     public void ResetSlots()
@@ -87,8 +91,6 @@ public class CookingUIManager : MonoBehaviour
     private void StartCookingSequence()
     {
         if (cookingSequenceImages == null || cookingSequenceImages.Count == 0) return;
-
-        // Hide all first
         foreach (var img in cookingSequenceImages)
             img.SetActive(false);
 
@@ -131,4 +133,8 @@ public class CookingUIManager : MonoBehaviour
             .setEase(LeanTweenType.easeInOutCubic);
     }
 
+    public Sprite GetMenuSprite(DishType dish)
+    {
+        return menuSprites[(int)dish];
+    }
 }

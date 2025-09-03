@@ -6,8 +6,8 @@ public static class RecipeDB
     // Each recipe is exactly 3 ingredients (order-insensitive)
     private static readonly Dictionary<DishType, IngredientType[]> _recipes = new()
     {
-        { DishType.SotoAyam,   new[] { IngredientType.Ayam, IngredientType.Air, IngredientType.DaunJeruk } },
-        { DishType.SotoDaging, new[] { IngredientType.Daging, IngredientType.Air, IngredientType.DaunJeruk } },
+        { DishType.SotoAyam,   new[] { IngredientType.Ayam, IngredientType.Air, IngredientType.Kunyit } },
+        { DishType.SotoDaging, new[] { IngredientType.Daging, IngredientType.Air, IngredientType.Kunyit } },
         { DishType.Rawon,      new[] { IngredientType.Daging, IngredientType.Air, IngredientType.Kluwek } },
         { DishType.SateDaging, new[] { IngredientType.Daging, IngredientType.Daging, IngredientType.Kacang } },
         { DishType.SateAyam,   new[] { IngredientType.Ayam, IngredientType.Ayam, IngredientType.Kacang } },

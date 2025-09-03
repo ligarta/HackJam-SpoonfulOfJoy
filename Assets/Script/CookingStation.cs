@@ -6,7 +6,8 @@ using System;
 public class CookingStation : MonoBehaviour
 {
     public event Action<IngredientType> OnIngredientPicked;
-    public event Action<DishType> OnCooked;      // dish is successfully cooked
+    public event Action<DishType> OnCooked;
+
     public event Action<string> OnFeedback;      // UI message
 
     private List<IngredientType> buffer = new();
@@ -47,7 +48,6 @@ public class CookingStation : MonoBehaviour
             OnCooked?.Invoke(dish);
         }
     }
-
     public void ClearBuffer()
     {
         buffer.Clear();

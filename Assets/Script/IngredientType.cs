@@ -4,7 +4,7 @@ public enum IngredientType
     Ayam,
     Daging,
     Air,
-    DaunJeruk,
+    Kunyit,
     Kluwek,
     Kacang,
     Kerupuk,
@@ -15,8 +15,8 @@ public enum IngredientType
 public enum DishType
 {
     None,
-    SotoAyam,      // Ayam + Air + DaunJeruk
-    SotoDaging,    // Daging + Air + DaunJeruk
+    SotoAyam,      // Ayam + Air + Kunyit
+    SotoDaging,    // Daging + Air + Kunyit
     Rawon,         // Daging + Air + Kluwek
     SateDaging,    // Daging + Daging + Kacang
     SateAyam,      // Ayam + Ayam + Kacang
