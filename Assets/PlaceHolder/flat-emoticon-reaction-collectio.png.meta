@@ -1,0 +1,923 @@
+fileFormatVersion: 2
+guid: d65ef80a04b5c434fb50bac2cb792ba6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6502900599382123911
+    second: flat-emoticon-reaction-collectio_0
+  - first:
+      213: 5579584957171876359
+    second: flat-emoticon-reaction-collectio_1
+  - first:
+      213: -9205810848881037711
+    second: flat-emoticon-reaction-collectio_2
+  - first:
+      213: -6643337657211546179
+    second: flat-emoticon-reaction-collectio_3
+  - first:
+      213: 2490879736101869557
+    second: flat-emoticon-reaction-collectio_4
+  - first:
+      213: -3031900188649970041
+    second: flat-emoticon-reaction-collectio_5
+  - first:
+      213: -5498997991517948847
+    second: flat-emoticon-reaction-collectio_6
+  - first:
+      213: 7631229131057513111
+    second: flat-emoticon-reaction-collectio_7
+  - first:
+      213: 1014743919371032690
+    second: flat-emoticon-reaction-collectio_8
+  - first:
+      213: -3264532192721360059
+    second: flat-emoticon-reaction-collectio_9
+  - first:
+      213: 128763600118551175
+    second: flat-emoticon-reaction-collectio_10
+  - first:
+      213: 7540457113428171522
+    second: flat-emoticon-reaction-collectio_11
+  - first:
+      213: -4752414135253063133
+    second: flat-emoticon-reaction-collectio_12
+  - first:
+      213: 7405512740683704940
+    second: flat-emoticon-reaction-collectio_13
+  - first:
+      213: -4350437248652710432
+    second: flat-emoticon-reaction-collectio_14
+  - first:
+      213: 8738462893458670560
+    second: flat-emoticon-reaction-collectio_15
+  - first:
+      213: 1507246322600727541
+    second: flat-emoticon-reaction-collectio_16
+  - first:
+      213: 6062816832317591822
+    second: flat-emoticon-reaction-collectio_17
+  - first:
+      213: -2652078442970414540
+    second: flat-emoticon-reaction-collectio_18
+  - first:
+      213: -6687814844483454999
+    second: flat-emoticon-reaction-collectio_19
+  - first:
+      213: 2687313242591050859
+    second: flat-emoticon-reaction-collectio_20
+  - first:
+      213: 4800725244915797577
+    second: flat-emoticon-reaction-collectio_21
+  - first:
+      213: -4582314017131458720
+    second: flat-emoticon-reaction-collectio_22
+  - first:
+      213: 3240851227411881419
+    second: flat-emoticon-reaction-collectio_23
+  - first:
+      213: -2741085419745335450
+    second: flat-emoticon-reaction-collectio_24
+  - first:
+      213: -871644033551212979
+    second: flat-emoticon-reaction-collectio_25
+  - first:
+      213: 2247515389214645805
+    second: flat-emoticon-reaction-collectio_26
+  - first:
+      213: -291709987903107247
+    second: flat-emoticon-reaction-collectio_27
+  - first:
+      213: 4625156641893967086
+    second: flat-emoticon-reaction-collectio_28
+  - first:
+      213: 1234000146994358771
+    second: flat-emoticon-reaction-collectio_29
+  - first:
+      213: -3737198080854168785
+    second: flat-emoticon-reaction-collectio_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_0
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 1367
+        width: 390
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785a8db24a1fe3a50800000000000000
+      internalID: 6502900599382123911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_1
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 1367
+        width: 390
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 702c756e4faae6d40800000000000000
+      internalID: 5579584957171876359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_2
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 1367
+        width: 391
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17e2203bec36e3080800000000000000
+      internalID: -9205810848881037711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_3
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 848
+        width: 392
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db51ee2499f1ec3a0800000000000000
+      internalID: -6643337657211546179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_4
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 847
+        width: 390
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f712983ce1619220800000000000000
+      internalID: 2490879736101869557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_5
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 848
+        width: 391
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786241597d68ce5d0800000000000000
+      internalID: -3031900188649970041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_6
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 322
+        width: 390
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1547cfe2672afa3b0800000000000000
+      internalID: -5498997991517948847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_7
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 322
+        width: 390
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792cb44767297e960800000000000000
+      internalID: 7631229131057513111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_8
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 322
+        width: 391
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2781914e738151e00800000000000000
+      internalID: 1014743919371032690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_9
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 95
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b2407544d02b2d0800000000000000
+      internalID: -3264532192721360059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_10
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 95
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7821115efc579c100800000000000000
+      internalID: 128763600118551175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_11
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 95
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20b14f92bc515a860800000000000000
+      internalID: 7540457113428171522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_12
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 93
+        width: 61
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32a22baf5880c0eb0800000000000000
+      internalID: -4752414135253063133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_13
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 139
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6ae4100a9aa5c660800000000000000
+      internalID: 7405512740683704940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_14
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 126
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed6d683f5420a3c0800000000000000
+      internalID: -4350437248652710432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_15
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 96
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e3498704b1454970800000000000000
+      internalID: 8738462893458670560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_16
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 128
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f351af6b80dae410800000000000000
+      internalID: 1507246322600727541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_17
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 96
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e019c8c69c3732450800000000000000
+      internalID: 6062816832317591822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_18
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 95
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432074a15bce13bd0800000000000000
+      internalID: -2652078442970414540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_19
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 95
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e7bafe15db1033a0800000000000000
+      internalID: -6687814844483454999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_20
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 128
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6cb7d8f7214b4520800000000000000
+      internalID: 2687313242591050859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_21
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 96
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ec477cc2a9f9240800000000000000
+      internalID: 4800725244915797577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_22
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 85
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f0697fda95860c0800000000000000
+      internalID: -4582314017131458720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_23
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 96
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd16c34501d9fc20800000000000000
+      internalID: 3240851227411881419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_24
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 95
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667a3196555b5f9d0800000000000000
+      internalID: -2741085419745335450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_25
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 85
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e5791ae5c47e3f0800000000000000
+      internalID: -871644033551212979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_26
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 96
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2edc51b657c03f10800000000000000
+      internalID: 2247515389214645805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_27
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 95
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f0a91cf43a3fbf0800000000000000
+      internalID: -291709987903107247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_28
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 95
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee4e0aee57bdf2040800000000000000
+      internalID: 4625156641893967086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_29
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 84
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9e06e789c002110800000000000000
+      internalID: 1234000146994358771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flat-emoticon-reaction-collectio_30
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 96
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2b6a6f552ec22cc0800000000000000
+      internalID: -3737198080854168785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      flat-emoticon-reaction-collectio_0: 6502900599382123911
+      flat-emoticon-reaction-collectio_1: 5579584957171876359
+      flat-emoticon-reaction-collectio_10: 128763600118551175
+      flat-emoticon-reaction-collectio_11: 7540457113428171522
+      flat-emoticon-reaction-collectio_12: -4752414135253063133
+      flat-emoticon-reaction-collectio_13: 7405512740683704940
+      flat-emoticon-reaction-collectio_14: -4350437248652710432
+      flat-emoticon-reaction-collectio_15: 8738462893458670560
+      flat-emoticon-reaction-collectio_16: 1507246322600727541
+      flat-emoticon-reaction-collectio_17: 6062816832317591822
+      flat-emoticon-reaction-collectio_18: -2652078442970414540
+      flat-emoticon-reaction-collectio_19: -6687814844483454999
+      flat-emoticon-reaction-collectio_2: -9205810848881037711
+      flat-emoticon-reaction-collectio_20: 2687313242591050859
+      flat-emoticon-reaction-collectio_21: 4800725244915797577
+      flat-emoticon-reaction-collectio_22: -4582314017131458720
+      flat-emoticon-reaction-collectio_23: 3240851227411881419
+      flat-emoticon-reaction-collectio_24: -2741085419745335450
+      flat-emoticon-reaction-collectio_25: -871644033551212979
+      flat-emoticon-reaction-collectio_26: 2247515389214645805
+      flat-emoticon-reaction-collectio_27: -291709987903107247
+      flat-emoticon-reaction-collectio_28: 4625156641893967086
+      flat-emoticon-reaction-collectio_29: 1234000146994358771
+      flat-emoticon-reaction-collectio_3: -6643337657211546179
+      flat-emoticon-reaction-collectio_30: -3737198080854168785
+      flat-emoticon-reaction-collectio_4: 2490879736101869557
+      flat-emoticon-reaction-collectio_5: -3031900188649970041
+      flat-emoticon-reaction-collectio_6: -5498997991517948847
+      flat-emoticon-reaction-collectio_7: 7631229131057513111
+      flat-emoticon-reaction-collectio_8: 1014743919371032690
+      flat-emoticon-reaction-collectio_9: -3264532192721360059
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -24,7 +24,7 @@ public class DialogLine : ScriptableObject
 
     [Header("Animation")]
     public float durasi = 1;
-    public Animation animationType;
+    public Animation animationIn;
 
 }
 
@@ -37,11 +37,5 @@ public class DialogLine : ScriptableObject
 
 public enum Animation
 {
-    None,
-    EnteringScane,
-    ExitingScane,
-    Jumping,
-    Shaking,
-    Scaling,
-    Rotating
+    None, fade, shake
 }
