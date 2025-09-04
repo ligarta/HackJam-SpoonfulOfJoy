@@ -167,6 +167,7 @@ public class DialogManager : MonoBehaviour
             DialogLine currentLine = currentNode.lines[currentLineIndex];
             dialogText.text = currentLine.text;
             dialogText.maxVisibleCharacters = currentLine.text.Length;
+            dialogText.rectTransform.sizeDelta = new Vector2(dialogText.rectTransform.sizeDelta.x, dialogText.preferredHeight);
             isTyping = false;
 
             if (audioSource.isPlaying)

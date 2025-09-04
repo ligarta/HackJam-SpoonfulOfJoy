@@ -37,6 +37,7 @@ public class GetInAnimation : MonoBehaviour
         {
             characterSprite.color = val;
         });
+        LeanTween.moveLocalY(gameObject, 0.67f, 5f).setEaseInOutExpo();
         LeanTween.scale(transform.gameObject, new Vector3(0.6f, 0.6f, 0.6f), 5f).setEaseInOutExpo().setOnComplete(() =>
         {
             gameObject.GetComponent<StartDialog>().StartThis();
