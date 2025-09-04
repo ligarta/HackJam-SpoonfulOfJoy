@@ -129,7 +129,7 @@ public class DialogManager : MonoBehaviour
         for (int i = 0; i < text.Length; i++)
         {
             if (i % 3 == 0) PlayAudio();
-
+            dialogText.rectTransform.sizeDelta = new Vector2(dialogText.rectTransform.sizeDelta.x, dialogText.preferredHeight);
             if (text[i] == '<')
             {
                 int closingTagIndex = text.IndexOf('>', i);
