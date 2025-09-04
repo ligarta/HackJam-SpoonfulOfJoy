@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: Line 2
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: Adit
-  text: Abc
+  speakerName: ...
+  text: Oh, tentu. Santai saja, masih buka. Selamat datang di malam pertama saya
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
-  animationType: 0
+  isShake: 1

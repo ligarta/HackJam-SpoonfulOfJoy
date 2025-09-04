@@ -9,7 +9,7 @@ public class StartDialog : MonoBehaviour
     /// <summary>
     /// Node awal dari dialog
     /// </summary>
-    [SerializeField] DialogNode startNode;
+    [SerializeField]public DialogNode startNode;
 
     public void StartThis()
     {

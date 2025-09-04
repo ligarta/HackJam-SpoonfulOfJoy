@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewDialogLine", menuName = "Dialog/Line")]
 /// Digunakan untuk menyimpan baris dialog
-public class DialogLine : ScriptableObject 
+public class DialogLine : ScriptableObject
 {
     /// <summary>
     /// Nama pembicara
@@ -15,7 +15,7 @@ public class DialogLine : ScriptableObject
     /// </summary>
     [TextArea(3, 5)] public string text;
     public Sprite charSprite;
-    
+
     [Header("Audio")]
     public AudioClip spokenText;
     public AudioClip moorOrEffect;
@@ -23,6 +23,7 @@ public class DialogLine : ScriptableObject
     [Header("Animation")]
     public float durasi = 1;
     public bool isShake = false;
+    public bool isAnonymous = false;
 
 }
 
