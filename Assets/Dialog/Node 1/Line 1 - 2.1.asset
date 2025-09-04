@@ -20,3 +20,5 @@ MonoBehaviour:
   durasi: 1
   isShake: 0
   isAnonymous: 0
+  isDoneEating: 0
+  placeIndex: 1

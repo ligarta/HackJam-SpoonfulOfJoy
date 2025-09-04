@@ -40,6 +40,7 @@ public class CookingUIManager : MonoBehaviour
     [SerializeField] DishType currentDish;
     void ShowCookResult(DishType dish)
     {
+        SlideSecondStageCookingUI();
         currentDish = dish;
         menuResult.sprite = GetMenuSprite(dish);
         menuResult.SetNativeSize();

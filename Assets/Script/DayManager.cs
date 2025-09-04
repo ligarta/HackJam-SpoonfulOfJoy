@@ -30,8 +30,11 @@ public class DayManager : MonoBehaviour
         dialogManager.OnDisplayingNewLine += assignCurrentDialogText;
         StartDay(0);
     }
-
-    void StartDay(int index)
+    void assignCurrentDish(DishType a)
+    {
+        foodSpriteRenderer[dialogManager.currentLine.placeIndex].sprite = cookingManagerUI.menuSprites[(int)a];
+    }
+    void StartDay(int index) 
     {
         Debug.Log($"[DayManager] StartDay() index={index}");
 
@@ -206,7 +209,7 @@ public class DayManager : MonoBehaviour
         {
             Debug.LogWarning("[DayManager] No result dialog found!");
         }
-
+        assignCurrentDish(currentDish);
         dialogManager.isCooking = false;
 
         // Wait for dialog to start before accessing current line
