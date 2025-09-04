@@ -82,7 +82,7 @@ public class DialogManager : MonoBehaviour
         {
             if (isCooking)
             {
-                Debug.Log("[DialogManager] Reached end of dialog but cooking is active — keeping dialog open.");
+                Debug.Log("[DialogManager] Reached end of dialog but cooking is active ï¿½ keeping dialog open.");
                 if (currentNode.lines.Length > 0)
                 {
                     currentLine = currentNode.lines[currentNode.lines.Length - 1];
@@ -251,13 +251,13 @@ public class DialogManager : MonoBehaviour
         }
         currentLine = null;
         OnDialogFinished?.Invoke();
-        if (dialogPanel != null)
-        {
-            LeanTween.scale(dialogPanel, new Vector3(0, 0, 0), 0.5f).setEaseInExpo().setOnComplete(() =>
-            {
-                dialogPanel.SetActive(false);
-            });
-        }
+        // if (dialogPanel != null && !currentNode.nextNode)
+        // {
+        //     LeanTween.scale(dialogPanel, new Vector3(0, 0, 0), 0.5f).setEaseInExpo().setOnComplete(() =>
+        //     {
+        //     dialogPanel.SetActive(false);
+        //     });
+        // }
     }
 
     public void Restart()
