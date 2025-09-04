@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 829660}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: PickIngredient
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &829660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 132928766}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: PickIngredient
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &132928766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,7 +739,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 208634606}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: PickIngredient
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &208634606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,9 +1937,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 593100669}
-        m_TargetAssemblyTypeName: CookingUIManager, Assembly-CSharp
-        m_MethodName: debug
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: Cook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2645,6 +2681,7 @@ GameObject:
   - component: {fileID: 593100668}
   - component: {fileID: 593100672}
   - component: {fileID: 593100671}
+  - component: {fileID: 593100673}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2702,7 +2739,7 @@ MonoBehaviour:
   - {fileID: -3253167507460547780, guid: 59e1583f6a0a17a4288ba324562ebde1, type: 3}
   - {fileID: 7885027107042499171, guid: 1c42193a681210a43afbce8b2e3b8d6c, type: 3}
   - {fileID: -5908260245824124150, guid: d2c075565fa09b6469c7d3eaa9953bf7, type: 3}
-  menuResult: {fileID: 1941459763}
+  menuResult: {fileID: 335874570}
   testText: {fileID: 364592457}
   currentDish: 0
   cookingUIPanel: {fileID: 957730357}
@@ -2819,6 +2856,27 @@ MonoBehaviour:
   dayText: {fileID: 0}
   fadeDuration: 1
   displayDuration: 1.5
+--- !u!114 &593100673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593100667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603c8acd510b7da4181c956d67a3ab5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  dayManager: {fileID: 593100672}
+  dialogManager: {fileID: 593100671}
+  cookingStation: {fileID: 593100668}
+  OriginalCameraPosition: {fileID: 519420032}
+  currentCamera: {fileID: 519420031}
+  currentSelectedCustomerSlot: {fileID: 0}
+  zoomSize: 3
+  smoothSpeed: 4
+  currentState: 0
 --- !u!1 &614349438
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,7 +4256,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 819348397}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: PickIngredient
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &819348397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4541,7 +4611,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 862367838}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: PickIngredient
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &862367838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5288,7 +5370,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1076543086}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: PickIngredient
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1076543086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5409,7 +5503,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1091726762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: PickIngredient
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1091726762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6418,7 +6524,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1378952793}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: PickIngredient
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1378952793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7629,6 +7747,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727208865}
   m_CullTransparentMesh: 1
+--- !u!1 &1759869666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1759869670}
+  - component: {fileID: 1759869669}
+  - component: {fileID: 1759869668}
+  - component: {fileID: 1759869667}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1759869667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759869666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1759869668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759869666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &1759869669
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759869666}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1759869670
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759869666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1774920801
 GameObject:
   m_ObjectHideFlags: 0
@@ -7711,7 +7930,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1774920804}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100672}
+        m_TargetAssemblyTypeName: DayManager, Assembly-CSharp
+        m_MethodName: cookingConfirmed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1774920804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8542,7 +8773,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1948015904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593100668}
+        m_TargetAssemblyTypeName: CookingStation, Assembly-CSharp
+        m_MethodName: PickIngredient
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1948015904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9459,3 +9702,4 @@ SceneRoots:
   - {fileID: 1483589414}
   - {fileID: 230740563}
   - {fileID: 1972784319}
+  - {fileID: 1759869670}

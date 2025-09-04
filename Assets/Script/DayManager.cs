@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class DayManager : MonoBehaviour
 {
+    public event Action _CookingEventDone;
     public List<DayData> days;
     public DialogManager dialogManager;
     public CookingUIManager cookingManagerUI;
@@ -48,7 +49,10 @@ public class DayManager : MonoBehaviour
         currentEventIndex = 0;
         RunNextEvent();
     }
-
+    public SpriteRenderer getSelectedCharacterSpriteRenderer()
+    {
+        return customerSpriteRenderer[dialogManager.currentLine.placeIndex - 1];   
+    }
     void RunNextEvent()
     {
         Debug.Log($"[DayManager] RunNextEvent() currentDayIndex={currentDayIndex}, currentEventIndex={currentEventIndex}");
@@ -209,6 +213,8 @@ public class DayManager : MonoBehaviour
         {
             Debug.LogWarning("[DayManager] No result dialog found!");
         }
+        _CookingEventDone?.Invoke();
+        cookingManagerUI.ResetCookingUI();
         assignCurrentDish(currentDish);
         dialogManager.isCooking = false;
 

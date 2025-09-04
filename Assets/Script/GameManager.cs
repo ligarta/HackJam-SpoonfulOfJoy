@@ -42,30 +42,27 @@ public class GameManager : MonoBehaviour
     {
         if (dayManager != null)
             dayManager._CookingEvent += HandleCookingUI;
-        if (cookingStation != null)
-            cookingStation.OnCooked += HandleCookingFinished;
+            dayManager._CookingEventDone += HandleCookingFinished;
     }
 
     void OnDestroy()
     {
         if (dialogManager != null)
             dialogManager.OnDialogFinished -= HandleCookingUI;
-
-        if (cookingStation != null)
-            cookingStation.OnCooked -= HandleCookingFinished;
     }
 
     private void HandleCookingUI()
     {
         DialogueToCooking();
     }
-    private void HandleCookingFinished(DishType dish)
+    private void HandleCookingFinished()
     {
-       
+        CookingToDialogue();
     }
     public void DialogueToCooking()
     {
         currentState = GameState.Cooking;
+        currentSelectedCustomerSlot = dayManager.getSelectedCharacterSpriteRenderer().gameObject;
         FocusOnCustomerWhileCooking();
     }
 
@@ -74,16 +71,16 @@ public class GameManager : MonoBehaviour
         currentState = GameState.Dialogue;
 
         LeanTween.cancel(currentCamera.gameObject);
-
+        Vector3 original = new Vector3(0, 0, -10);
         float duration = 2f;
 
         // Tween position
-        LeanTween.move(currentCamera.gameObject, OriginalCameraPosition.position, duration).setEase(LeanTweenType.easeInOutQuad);
+        LeanTween.move(currentCamera.gameObject, original, duration).setEase(LeanTweenType.easeInOutQuad);
 
         // Tween zoom reset
         if (currentCamera.orthographic)
         {
-            LeanTween.value(currentCamera.gameObject, currentCamera.orthographicSize, 10f, duration)
+            LeanTween.value(currentCamera.gameObject, currentCamera.orthographicSize, 5f, duration)
                 .setEase(LeanTweenType.easeInOutQuad)
                 .setOnUpdate((float val) => currentCamera.orthographicSize = val);
         }
@@ -100,17 +97,14 @@ public class GameManager : MonoBehaviour
     {
         if (currentCamera == null || currentSelectedCustomerSlot == null) return;
 
-        Vector3 viewportPos = currentCamera.WorldToViewportPoint(currentSelectedCustomerSlot.transform.position);
-        Vector3 desiredWorldPos = currentCamera.ViewportToWorldPoint(
-            new Vector3(desiredViewportPos.x, desiredViewportPos.y, viewportPos.z)
-        );
-
-        Vector3 targetPos = currentCamera.transform.position + (currentSelectedCustomerSlot.transform.position - desiredWorldPos);
-
         // Kill any existing tweens on the camera to avoid conflicts
         LeanTween.cancel(currentCamera.gameObject);
 
         float duration = 3f;
+
+        // Offset camera X by +2.63 from the customer's position
+        Vector3 customerPos = currentSelectedCustomerSlot.transform.position;
+        Vector3 targetPos = new Vector3(customerPos.x + 2.63f, currentCamera.transform.position.y, currentCamera.transform.position.z);
 
         // Tween position
         LeanTween.move(currentCamera.gameObject, targetPos, duration).setEase(LeanTweenType.easeInOutQuad);
@@ -135,5 +129,4 @@ public class GameManager : MonoBehaviour
                 });
         }
     }
-
 }
