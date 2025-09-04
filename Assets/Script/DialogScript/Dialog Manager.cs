@@ -3,23 +3,14 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine.InputSystem;  // new input system
 
 public class DialogManager : MonoBehaviour
 {
     public event Action OnDialogFinished;
-
+    public event Action<int> OnDisplayingNewLine;
     public GameObject panel;
     [SerializeField] private SpriteRenderer characterSprite;
-
-    // private bool inChoice = false;   // removed choice
-    // bool isChosed = false;           // removed choice
-    // [SerializeField] private float anxStat;   // removed anx stat
-    // Choice nextNode;                 // removed choice
-
-    // public TextMeshProUGUI timer;
 
     [Header("UI Elements")]
     [SerializeField] TMP_Text speakerNametext;   // now optional
@@ -27,47 +18,78 @@ public class DialogManager : MonoBehaviour
     [SerializeField] GameObject dialogPanel;
     [SerializeField] GameObject choicePanel;   // removed choice
     [SerializeField] GameObject prefebChoices;   // removed choice
-    //[SerializeField] Button choiceButtonPrefab;   // removed choice
-    // [SerializeField] public Button progresButton;   // not needed anymore
+
+    public DialogLine currentLine;
 
     [Header("Audio")]
-    // public AudioClip voiceAudioSource;   // not used
     public AudioClip effectAudioSource;
     [SerializeField] float textSpeed = 0.05f;
     [SerializeField] AudioClip audioClick;
-    // [SerializeField] AudioClip audioTimer;   // not used
-    // [SerializeField] AudioClip shuffleAudio; // not used
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource audioType;
 
     [Header("Setting")]
-    //[SerializeField] string NextSceneDialog;
     DialogNode currentNode;
     int currentLineIndex = 0;
     bool isTyping = false;
-    bool isChoice = false;   // removed choice
+    bool isChoice = false;
     [SerializeField] private String NextScene;
     [SerializeField] private String chatWith;
+    public bool isCooking = false;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        dialogPanel.SetActive(false);;
+        currentLine = null;
     }
 
-    public void StartDialog(DialogNode startNode)
+    public void StartDialog(DialogNode node)
     {
-        dialogPanel.SetActive(true);
-        LeanTween.scale(dialogPanel, new Vector3(1, 1, 1), 0.5f).setEaseOutExpo();
-        currentNode = startNode;
+        if (node == null || node.lines == null || node.lines.Length == 0)
+        {
+            Debug.LogError("DialogManager: Invalid node or empty lines.");
+            return;
+        }
+
+        currentNode = node;
         currentLineIndex = 0;
+        LeanTween.cancel(dialogPanel);
+
+        dialogPanel.SetActive(true);
+        LeanTween.scale(dialogPanel, Vector3.one, 0.5f).setEaseOutExpo();
+
         DisplayCurrentLine();
     }
 
     void DisplayCurrentLine()
     {
-        if (currentNode.lines.Length == currentLineIndex && currentNode.isChoiceNull())
+        if (currentLineIndex < currentNode.lines.Length && !isCooking)
         {
+            OnDisplayingNewLine?.Invoke(currentNode.lines[currentLineIndex].placeIndex - 1);
+        }
+
+        if (currentNode == null || currentNode.lines == null)
+        {
+            Debug.LogError("[DialogManager] DisplayCurrentLine: currentNode or lines is null!");
+            if (!isCooking) 
+            {
+                EndDialog();
+            }
+            return;
+        }
+
+        if (currentLineIndex >= currentNode.lines.Length)
+        {
+            if (isCooking)
+            {
+                Debug.Log("[DialogManager] Reached end of dialog but cooking is active — keeping dialog open.");
+                if (currentNode.lines.Length > 0)
+                {
+                    currentLine = currentNode.lines[currentNode.lines.Length - 1];
+                }
+                return; 
+            }
+
             if (currentNode.nextNode == null)
             {
                 EndDialog();
@@ -77,42 +99,25 @@ public class DialogManager : MonoBehaviour
             {
                 currentNode = currentNode.nextNode;
                 currentLineIndex = 0;
+                if (currentNode.lines != null && currentNode.lines.Length > 0)
+                {
+                    currentLine = currentNode.lines[currentLineIndex];
+                }
                 DisplayCurrentLine();
             }
             return;
         }
-        else if (currentLineIndex < currentNode.lines.Length /*|| currentNode.isChoiceNull()*/)
+
+        currentLine = currentNode.lines[currentLineIndex];
+        DialogLine line = currentLine;
+
+        if (speakerNametext != null)
         {
-            DialogLine line = currentNode.lines[currentLineIndex];
-
-            // only set speaker name if it exists
-            if (speakerNametext != null)
-            {
-                speakerNametext.text = line.speakerName;
-            }
-            setSprite(line);
-            StartCoroutine(TypeText(line.text));
-
+            speakerNametext.text = line.speakerName;
         }
-        //    /// jika baris dialog habis dan memiliki pilihan
-        //    else
-        //    {
-        //        if (!currentNode.isChoiceNull())
-        //        {
-        //            showChoices();
-        //        }
-        //        else if (currentNode.nextNode != null)
-        //        {
-        //            currentNode = currentNode.nextNode;
-        //            currentLineIndex = 0;
-        //            DisplayCurrentLine();
-        //        }
-        //        else
-        //        {
-        //            EndDialog();
-        //        }
-        //    }
-        //}
+
+        setSprite(line);
+        StartCoroutine(TypeText(line.text));
     }
 
     IEnumerator TypeText(string text)
@@ -147,19 +152,26 @@ public class DialogManager : MonoBehaviour
 
     void PlayAudio()
     {
-        if (audioType.isPlaying)
+        if (audioType != null && audioType.isPlaying)
         {
             audioType.Stop();
         }
-        audioType.clip = effectAudioSource;
-        audioType.Play();
+        if (audioType != null && effectAudioSource != null)
+        {
+            audioType.clip = effectAudioSource;
+            audioType.Play();
+        }
     }
 
     public void clicking()
     {
         if (isChoice) return;   // removed choice
-        audioSource.clip = audioClick;
-        audioSource.Play();
+
+        if (audioSource != null && audioClick != null)
+        {
+            audioSource.clip = audioClick;
+            audioSource.Play();
+        }
 
         if (isTyping)
         {
@@ -170,28 +182,51 @@ public class DialogManager : MonoBehaviour
             dialogText.rectTransform.sizeDelta = new Vector2(dialogText.rectTransform.sizeDelta.x, dialogText.preferredHeight);
             isTyping = false;
 
-            if (audioSource.isPlaying)
+            if (audioSource != null && audioSource.isPlaying)
             {
                 audioSource.Stop();
             }
         }
         else
         {
+            if (isCooking && currentLineIndex >= currentNode.lines.Length - 1)
+            {
+                return;
+            }
+
             currentLineIndex++;
             DisplayCurrentLine();
         }
     }
+
     public void SetdialogText(TextMeshProUGUI text)
     {
         dialogText = text;
     }
+
     public void SetDialogPanel(GameObject panel)
     {
         dialogPanel = panel;
     }
+
+    public void SetDialogSpeakerNameText(TextMeshProUGUI text)
+    {
+        speakerNametext = text;
+    }
+
+    public void setCharacterSprite(SpriteRenderer sr)
+    {
+        characterSprite = sr;
+    }
+
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)   // New Input System
+        bool inputDetected = false;
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            inputDetected = true;
+        }
+        if (inputDetected && !isCooking && IsDialogActive())
         {
             clicking();
         }
@@ -199,18 +234,30 @@ public class DialogManager : MonoBehaviour
 
     void EndDialog()
     {
-        dialogText.text = "";
+        Debug.Log("[DialogManager] EndDialog() called");
+        if (isCooking)
+        {
+            Debug.Log("[DialogManager] EndDialog() blocked because cooking is active");
+            return;
+        }
 
-        // clear speaker name only if exists
+        if (dialogText != null)
+        {
+            dialogText.text = "";
+        }
         if (speakerNametext != null)
         {
             speakerNametext.text = "";
         }
+        currentLine = null;
         OnDialogFinished?.Invoke();
-        LeanTween.scale(dialogPanel, new Vector3(0, 0, 0), 0.5f).setEaseInExpo().setOnComplete(() =>
+        if (dialogPanel != null)
         {
-            dialogPanel.SetActive(false);
-        });
+            LeanTween.scale(dialogPanel, new Vector3(0, 0, 0), 0.5f).setEaseInExpo().setOnComplete(() =>
+            {
+                dialogPanel.SetActive(false);
+            });
+        }
     }
 
     public void Restart()
@@ -243,7 +290,8 @@ public class DialogManager : MonoBehaviour
 
     private void ShakeSprite(bool isShake)
     {
-        if (!isShake) return;
+        if (!isShake || characterSprite == null) return;
+
         Vector3 originalPos = characterSprite.transform.position;
         float shakeDuration = 0.5f;
         float shakeAmount = 0.2f;
@@ -260,36 +308,16 @@ public class DialogManager : MonoBehaviour
                 characterSprite.transform.position = originalPos;
             });
     }
+
+    public DialogLine getCurrentLine()
+    {
+        return currentLine;
+    }
+
+    public bool IsDialogActive()
+    {
+        bool active = currentLine != null && currentNode != null && dialogPanel != null && dialogPanel.activeInHierarchy;
+        Debug.Log($"[DialogManager] IsDialogActive check - currentLine!=null: {currentLine != null}, currentNode!=null: {currentNode != null}, dialogPanel.activeInHierarchy: {dialogPanel?.activeInHierarchy}");
+        return active;
+    }
 }
-//    public void showChoices()
-//    {
-//        isChoice = true;   // removed choice
-//        choicePanel.SetActive(true);
-//        for (int i = 0; i < currentNode.choices.Length; i++)
-//        {
-//            GameObject choiceObj = Instantiate(prefebChoices, choicePanel.transform);
-//            choiceObj.GetComponentInChildren<TMP_Text>().text = currentNode.choices[i].choiceText;
-//            int choiceIndex = i;
-//            choiceObj.GetComponent<Button>().onClick.AddListener(() => OnChoiceSelected(choiceIndex));
-//        }
-//        LeanTween.scale(choicePanel, new Vector3(1, 1, 1), 0.5f).setEaseOutExpo();
-//    }
-
-//    public void OnChoiceSelected(int index)
-//    {
-//        LeanTween.scale(choicePanel, new Vector3(0, 0, 0), 0.5f).setEaseInExpo().setOnComplete(() =>
-//        {
-//            choicePanel.SetActive(false);
-//            foreach (Transform child in choicePanel.transform)
-//            {
-//                Destroy(child.gameObject);
-//            }
-//        });
-
-//        Debug.Log("Choice selected: " + index);
-//        currentNode = currentNode.choices[index].nextNode;
-//        currentLineIndex = 0;
-//        DisplayCurrentLine();
-//        isChoice = false;   // removed choice
-//    }
-//}

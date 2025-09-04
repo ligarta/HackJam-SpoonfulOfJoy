@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 957314395e43a9345876894d48b4af25
+guid: c56e049694faaf74ab95cb369a8240c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1056792470760587178
-    second: Gerobak_0
-  - first:
-      213: 472380653952681740
-    second: Gerobak_1
+      213: 1624446880187356710
+    second: Adit Sedih_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gerobak_0
+      name: Adit Sedih_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 93
+        y: 75
+        width: 735
+        height: 812
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6500203d8d48551f0800000000000000
-      internalID: -1056792470760587178
+      spriteID: 6261f02b4d13b8610800000000000000
+      internalID: 1624446880187356710
       vertices: []
       indices: 
       edges: []
@@ -128,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 341fe8b41e9cda04eabc5f2b5e7a30fb
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -136,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1920.0,"y":1080.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Gerobak_0: -1056792470760587178
+      Adit Sedih_0: 1624446880187356710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
-  m_Name: Line 1
+  m_Name: Line 1 - 2.1 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: '?'
-  text: Mas, permisi! Masih buka, kan? Saya putar-putar dari tadi, warung lain sudah
-    pada tutup.
-  charSprite: {fileID: 149528332737663954, guid: 5cd7f3a89ae42004e9fc0705eed4fb9b, type: 3}
+  speakerName: ...
+  text: Anjay
+  charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
   isShake: 0
-  isAnonymous: 1
-  isDoneEating: 0
-  placeIndex: 1
+  isAnonymous: 0

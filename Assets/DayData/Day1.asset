@@ -14,18 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DayData
   dayNumber: 1
   events:
+  - eventName: AditPertama
+    dialogToStart: {fileID: 11400000, guid: 27ab62c61f74e6847bda6b8873e4e18e, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 0
+    correctFoodDialog: {fileID: 0}
+    incorrectFoodDialog: {fileID: 0}
+    correctDishType: 
+  - eventName: MasakAdit
+    dialogToStart: {fileID: 11400000, guid: f66f087fd53360e4fb338d6845d14a0b, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 1
+    correctFoodDialog: {fileID: 0}
+    incorrectFoodDialog: {fileID: 0}
+    correctDishType: 
   - eventName: 
     dialogToStart: {fileID: 0}
+    nextDialogNode: {fileID: 0}
     isCookingEvent: 0
-    customer: {fileID: 0}
-    placeIndex: 1
-  - eventName: 
-    dialogToStart: {fileID: 0}
-    isCookingEvent: 0
-    customer: {fileID: 0}
-    placeIndex: 0
-  - eventName: 
-    dialogToStart: {fileID: 0}
-    isCookingEvent: 0
-    customer: {fileID: 0}
-    placeIndex: 0
+    correctFoodDialog: {fileID: 0}
+    incorrectFoodDialog: {fileID: 0}
+    correctDishType: 

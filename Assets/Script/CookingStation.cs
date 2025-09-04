@@ -6,8 +6,7 @@ using System;
 public class CookingStation : MonoBehaviour
 {
     public event Action<IngredientType> OnIngredientPicked;
-    public event Action<DishType> OnCooked;
-
+    public event Action<DishType> OnCooked; 
     public event Action<string> OnFeedback;      // UI message
 
     private List<IngredientType> buffer = new();

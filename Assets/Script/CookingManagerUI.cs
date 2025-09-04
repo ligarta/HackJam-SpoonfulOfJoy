@@ -22,7 +22,6 @@ public class CookingUIManager : MonoBehaviour
         originalcookingUiPanel = cookingUIPanel;
         originalSecondStageObjectPosition = secondStageObject;
         originalSecondObjectPos = secondStageObject.anchoredPosition;
-        SlideFirstStageCookingUI();
     }
 
     void HandleIngredientPicked(IngredientType ing)
@@ -38,8 +37,10 @@ public class CookingUIManager : MonoBehaviour
     {
         Debug.Log("UI Message: " + msg);
     }
+    [SerializeField] DishType currentDish;
     void ShowCookResult(DishType dish)
     {
+        currentDish = dish;
         menuResult.sprite = GetMenuSprite(dish);
         menuResult.SetNativeSize();
         testText.text = RecipeDB.DishDisplayName(dish);
@@ -132,7 +133,6 @@ public class CookingUIManager : MonoBehaviour
         LeanTween.move(cookingUIPanel, thirdStageTargetPos, thirdStageDuration)
             .setEase(LeanTweenType.easeInOutCubic);
     }
-
     public Sprite GetMenuSprite(DishType dish)
     {
         return menuSprites[(int)dish];

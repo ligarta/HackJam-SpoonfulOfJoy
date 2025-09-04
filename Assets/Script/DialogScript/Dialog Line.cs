@@ -25,6 +25,9 @@ public class DialogLine : ScriptableObject
     public bool isShake = false;
     public bool isAnonymous = false;
 
+    public bool isDoneEating;               // assign SO (sprite, animations, etc.)
+    [Range(0, 5)] //0 gada, 1 place 1, 2 place 2, 3 place 3, 4 player, 5 narasi
+    public int placeIndex;
 }
 
 // public enum DialogTarget
