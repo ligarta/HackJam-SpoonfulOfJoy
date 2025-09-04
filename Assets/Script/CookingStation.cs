@@ -10,6 +10,7 @@ public class CookingStation : MonoBehaviour
     public event Action<string> OnFeedback;      // UI message
 
     private List<IngredientType> buffer = new();
+    public GameObject dialogPanel;
 
     public void PickIngredient(int ingredientInt) // taro ke UI buttons
     {
@@ -40,9 +41,14 @@ public class CookingStation : MonoBehaviour
         {
             OnFeedback?.Invoke("Resep tidak dikenal. (Gagal)");
             OnCooked?.Invoke(DishType.None);
+            LeanTween.scale(dialogPanel, Vector3.zero, 0.5f).setEaseInBack().setOnComplete(() =>
+            {
+                dialogPanel.SetActive(false);
+            });
         }
         else
         {
+            dialogPanel.SetActive(false);
             OnFeedback?.Invoke($"Masak {RecipeDB.DishDisplayName(dish)}");
             OnCooked?.Invoke(dish);
         }

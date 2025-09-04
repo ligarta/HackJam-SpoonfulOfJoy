@@ -13,6 +13,7 @@ public class CookingUIManager : MonoBehaviour
     public Image menuResult;
     public TextMeshProUGUI testText;
     private int currentSlot = 0;
+    public GameObject dialogPanel;
 
     void Start()
     {
@@ -61,12 +62,15 @@ public class CookingUIManager : MonoBehaviour
     private RectTransform originalcookingUiPanel;
     public void SlideFirstStageCookingUI()
     {
+        dialogPanel.SetActive(true);
+        LeanTween.scale(dialogPanel, Vector3.one, 0.5f).setEaseOutBack();
         ResetCookingUI();
         if (cookingUIPanel == null) return;
         Vector2 startPos = new Vector2(Screen.width, targetAnchoredPos.y);
         cookingUIPanel.anchoredPosition = startPos;
         LeanTween.move(cookingUIPanel, targetAnchoredPos, slideDuration)
             .setEase(LeanTweenType.easeOutExpo);
+        
     }
     [SerializeField] private RectTransform secondStageObject; // Ingredient part
     [SerializeField] private float secondStageMoveAmount = 520f;

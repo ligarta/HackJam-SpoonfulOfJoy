@@ -35,7 +35,7 @@ public class DayManager : MonoBehaviour
     {
         foodSpriteRenderer[dialogManager.currentLine.placeIndex].sprite = cookingManagerUI.menuSprites[(int)a];
     }
-    void StartDay(int index) 
+    void StartDay(int index)
     {
         Debug.Log($"[DayManager] StartDay() index={index}");
 
@@ -51,7 +51,7 @@ public class DayManager : MonoBehaviour
     }
     public SpriteRenderer getSelectedCharacterSpriteRenderer()
     {
-        return customerSpriteRenderer[dialogManager.currentLine.placeIndex - 1];   
+        return customerSpriteRenderer[dialogManager.currentLine.placeIndex - 1];
     }
     void RunNextEvent()
     {
@@ -308,6 +308,8 @@ public class DayManager : MonoBehaviour
         {
             orderTextPanels[currentIndex].SetActive(true);
             dialogManager.SetDialogPanel(orderTextPanels[currentIndex]);
+            cookingStation.dialogPanel = orderTextPanels[currentIndex];
+            cookingManagerUI.dialogPanel = orderTextPanels[currentIndex];
         }
 
         if (orderDialogtextnametext != null && currentIndex < orderDialogtextnametext.Length)

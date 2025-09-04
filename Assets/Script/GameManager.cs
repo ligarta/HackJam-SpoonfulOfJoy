@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public enum GameState
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DayManager dayManager;
     [SerializeField] private DialogManager dialogManager;
     [SerializeField] private CookingStation cookingStation;
+    [SerializeField] private CinemachineCamera cinemachineCamera;
+    [SerializeField] private CinemachinePositionComposer cinemachineComposer;
+
 
     [Header("Camera Settings")]
     public Transform OriginalCameraPosition;
@@ -97,36 +101,13 @@ public class GameManager : MonoBehaviour
     {
         if (currentCamera == null || currentSelectedCustomerSlot == null) return;
 
-        // Kill any existing tweens on the camera to avoid conflicts
-        LeanTween.cancel(currentCamera.gameObject);
-
-        float duration = 3f;
-
-        // Offset camera X by +2.63 from the customer's position
-        Vector3 customerPos = currentSelectedCustomerSlot.transform.position;
-        Vector3 targetPos = new Vector3(customerPos.x + 2.63f, currentCamera.transform.position.y, currentCamera.transform.position.z);
-
-        // Tween position
-        LeanTween.move(currentCamera.gameObject, targetPos, duration).setEase(LeanTweenType.easeInOutQuad);
-
-        // Tween zoom
-        if (currentCamera.orthographic)
-        {
-            LeanTween.value(currentCamera.gameObject, currentCamera.orthographicSize, zoomSize, duration)
-                .setEase(LeanTweenType.easeInOutQuad)
-                .setOnUpdate((float val) =>
-                {
-                    currentCamera.orthographicSize = val;
-                });
-        }
-        else
-        {
-            LeanTween.value(currentCamera.gameObject, currentCamera.fieldOfView, zoomSize, duration)
-                .setEase(LeanTweenType.easeInOutQuad)
-                .setOnUpdate((float val) =>
-                {
-                    currentCamera.fieldOfView = val;
-                });
-        }
+        cinemachineCamera.Follow = currentSelectedCustomerSlot.transform;
+        LeanTween.value(gameObject, 5, 3.35f, 1f).setEaseOutQuad()
+        .setOnUpdate((float val) => {
+            cinemachineCamera.Lens.OrthographicSize = val;
+        });
+        LeanTween.value(gameObject, 0, -0.3f, 2f).setEaseOutQuad().setOnUpdate((float val) => {
+            cinemachineComposer.Composition.ScreenPosition.Set(val, 0);
+        });
     }
 }
