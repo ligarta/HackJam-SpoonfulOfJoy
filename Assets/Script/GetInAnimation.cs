@@ -28,9 +28,9 @@ public class GetInAnimation : MonoBehaviour
     void animate()
     {
 
-        Color fromColor = new Color(0.36f, 0.36f, 0.36f, 0f);
+        Color fromColor = new Color(0.1f, 0.1f, 0.1f, 0f);
         Color toColor = Color.white;
-        if (dialog.startNode.lines[0].isAnonymous)toColor=Color.gray;
+        if (dialog.startNode.lines[0].isAnonymous)toColor=new Color(0.15f, 0.15f, 0.15f, 1f);
         LeanTween.value(gameObject, fromColor, toColor, 5f)
         .setEaseInOutExpo()
         .setOnUpdate((Color val) =>
