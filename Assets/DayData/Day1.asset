@@ -21,22 +21,8 @@ MonoBehaviour:
     correctFoodDialog: {fileID: 0}
     incorrectFoodDialog: {fileID: 0}
     correctDishType: 
-  - eventName: MasakAdit
-    dialogToStart: {fileID: 11400000, guid: f66f087fd53360e4fb338d6845d14a0b, type: 2}
-    nextDialogNode: {fileID: 0}
-    isCookingEvent: 1
-    correctFoodDialog: {fileID: 11400000, guid: 63afd8c31c2722647825c375bb2aa331, type: 2}
-    incorrectFoodDialog: {fileID: 11400000, guid: 2455d5e8cd7f3a34db2a8aac3dd9134a, type: 2}
-    correctDishType: 0100000002000000
-  - eventName: Lanjut
-    dialogToStart: {fileID: 11400000, guid: 27ab62c61f74e6847bda6b8873e4e18e, type: 2}
-    nextDialogNode: {fileID: 0}
-    isCookingEvent: 0
-    correctFoodDialog: {fileID: 0}
-    incorrectFoodDialog: {fileID: 0}
-    correctDishType: 
-  - eventName: 
-    dialogToStart: {fileID: 0}
+  - eventName: AditPertama
+    dialogToStart: {fileID: 11400000, guid: 02062240cef335e4d84367dfc3bc4d53, type: 2}
     nextDialogNode: {fileID: 0}
     isCookingEvent: 0
     correctFoodDialog: {fileID: 0}

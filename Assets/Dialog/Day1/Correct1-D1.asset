@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b15dba2069980048b67f528cc3c3f81, type: 3}
+  m_Name: Correct1-D1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogNode
+  lines:
+  - {fileID: 11400000, guid: 0f1b1203fcb95214b88ede21775e0a9b, type: 2}
+  - {fileID: 11400000, guid: eda030570f293904d996364c52fa9d9e, type: 2}
+  - {fileID: 11400000, guid: b3f0404c048838a4cacc66abbea16d9e, type: 2}
+  - {fileID: 11400000, guid: 1060287a98a90794185184474cf6f94f, type: 2}
+  nextNode: {fileID: 0}
