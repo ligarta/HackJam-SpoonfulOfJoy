@@ -299,7 +299,7 @@ public class IntManager : MonoBehaviour
 
 
                 LeanTween.sequence()
-                    .append(LeanTween.value(gameObject, 0f, 1f, 0.5f)
+                    .append(LeanTween.value(gameObject, 0f, 1f,2f)
                         .setEaseInOutQuad()
                         .setOnUpdate((float val) =>
                         {
@@ -351,7 +351,7 @@ public class IntManager : MonoBehaviour
         {
             image.SetActive(false);
         });
-        LeanTween.alpha(image.GetComponent<RectTransform>(), 0f, 0.8f).setEaseInExpo().setOnComplete(() =>
+        LeanTween.alpha(image.GetComponent<RectTransform>(), 0f, 0.8f).setEaseInOutExpo().setOnComplete(() =>
         {
         SceneManager.LoadScene("SampleScene");
         });

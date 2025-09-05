@@ -10,7 +10,8 @@ public class CookingUIManager : MonoBehaviour
     public Sprite defaultSprite;
     public List<Sprite> ingredientSprites;
     public List<Sprite> menuSprites;
-    public List<TextMeshProUGUI> cookingtextPaper;
+    public List<Image> cookingtextPaper;
+    public Sprite[] IngredientSelected;
     public Image menuResult;
     public TextMeshProUGUI testText;
     private int currentSlot = 0;
@@ -42,8 +43,9 @@ public class CookingUIManager : MonoBehaviour
             {
                 if (i == 0)
                     cookingSequenceImages[i].GetComponent<Image>().sprite = dishCookSequence1[(int)currentDish -1];
+
                 else if (i == 1)
-                    cookingSequenceImages[i].GetComponent<Image>().sprite = dishCookSequence2[(int)currentDish -1];
+                    cookingSequenceImages[i].GetComponent<Image>().sprite = dishCookSequence2[(int)currentDish - 1];
                 else if (i == 2)
                     cookingSequenceImages[i].GetComponent<Image>().sprite = dishCookSequence3[(int)currentDish - 1];
             }
@@ -64,12 +66,12 @@ public class CookingUIManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             ingredientSlots[i].sprite = TransparentPlaceHolder;
-            cookingtextPaper[i].text = "";
+            cookingtextPaper[i].sprite= TransparentPlaceHolder;
         }
         for (int a = 0; a < buffer.Count; a++)
         {
             ingredientSlots[a].sprite = ingredientSprites[(int)buffer[a]];
-            cookingtextPaper[a].text = buffer[a].ToString();
+            cookingtextPaper[a].sprite = IngredientSelected[(int)buffer[a]];
         }
     }
 

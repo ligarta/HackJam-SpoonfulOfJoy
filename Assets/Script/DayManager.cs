@@ -30,11 +30,12 @@ public class DayManager : MonoBehaviour
         dialogManager.OnDisplayingNewLine += assignCurrentDialogText;
         dialogManager.OnDisplayingNewLine += UpdateCharacterSprite;
         dialogManager.OnCharacterLeave += HandleCharacterLeaving;
-        StartCoroutine(SwitchDayAnimation(0));
-        
+        StartCoroutine(SwitchDayAnimation(0, true));
+
+
     }
 
-    
+
 
     private void UpdateCharacterSprite(int a)
     {
@@ -122,7 +123,7 @@ public class DayManager : MonoBehaviour
         if (ev.isCookingEvent)
         {
             Debug.Log("[DayManager] Setting up cooking event");
-            currentSelectedDishIndex = currentEventIndex-1;
+            currentSelectedDishIndex = currentEventIndex - 1;
             assignCurrentOrderDialogText(currentselectedIndex - 1);
         }
         else
@@ -362,12 +363,13 @@ public class DayManager : MonoBehaviour
     [SerializeField] float fadeDuration = 1f;
     [SerializeField] float displayDuration = 1.5f;
 
-    private IEnumerator SwitchDayAnimation(int index)
+    private IEnumerator SwitchDayAnimation(int index, bool first = false)
     {
         Debug.Log($"[DayManager] SwitchDayAnimation() to day index {index}");
 
         // 1. Fade in ke hitam
-        if (fadePanel != null)
+
+        if (fadePanel != null && !first)
         {
             fadePanel.gameObject.SetActive(true);
             Color panelColor = fadePanel.color;
@@ -405,6 +407,7 @@ public class DayManager : MonoBehaviour
                 t -= Time.deltaTime;
                 panelColor.a = Mathf.Clamp01(t / fadeDuration);
                 fadePanel.color = panelColor;
+                dayText.color= new Color(1f, 1f, 1f, panelColor.a);
                 yield return null;
             }
 
