@@ -6,7 +6,6 @@ public enum SoundType
     Pop_Up_Noise,
     Level_Win
 }
-
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] soundList;
