@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: 
-  text: 
-  charSprite: {fileID: 0}
+  speakerName: Adit
+  text: P-permisi mas, kalau boleh tau, masnya lagi mengerjakan apa ya?
+  charSprite: {fileID: 149528332737663954, guid: 5cd7f3a89ae42004e9fc0705eed4fb9b, type: 3}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
   isShake: 0
   isAnonymous: 0
   isDoneEating: 0
-  placeIndex: 0
+  placeIndex: 1
   isLeaving: 0

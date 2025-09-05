@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: 1 20
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: 
-  text: 
+  speakerName: Adit
+  text: Saya sebelumnya gak pernah ikut lomba sih
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
@@ -21,5 +21,5 @@ MonoBehaviour:
   isShake: 0
   isAnonymous: 0
   isDoneEating: 0
-  placeIndex: 0
+  placeIndex: 1
   isLeaving: 0

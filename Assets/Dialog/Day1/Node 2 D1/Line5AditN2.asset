@@ -15,7 +15,7 @@ MonoBehaviour:
   speakerName: Adit
   text: SERIUSAN MAS? WAH! Pas banget, saya padahal sudah mikir makan mie instan
     buat akhir bulan
-  charSprite: {fileID: 0}
+  charSprite: {fileID: 8190574620929871797, guid: 89e8c41e3b0e5b544a89fbc7f67c4c79, type: 3}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
@@ -23,3 +23,4 @@ MonoBehaviour:
   isAnonymous: 0
   isDoneEating: 0
   placeIndex: 1
+  isLeaving: 0

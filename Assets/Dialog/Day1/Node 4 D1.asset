@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Node 4 D1
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
   lines:
-  - {fileID: 11400000, guid: b6a56e9797b8a124a95377367e95cba8, type: 2}
   - {fileID: 11400000, guid: ac199e460a3b38945a0397f964994877, type: 2}
   - {fileID: 11400000, guid: 64cf06de2d8b1414caf82e5211e62a5a, type: 2}
   - {fileID: 11400000, guid: 5f39a43fce01ff845900cc24e4feccd0, type: 2}

@@ -15,7 +15,7 @@ MonoBehaviour:
   speakerName: ???
   text: Mas, permisi! Masih buka, kan? Saya putar-putar dari tadi, warung lain sudah
     pada tutup.
-  charSprite: {fileID: 0}
+  charSprite: {fileID: 8190574620929871797, guid: 89e8c41e3b0e5b544a89fbc7f67c4c79, type: 3}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1

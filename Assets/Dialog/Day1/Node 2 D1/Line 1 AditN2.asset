@@ -15,7 +15,7 @@ MonoBehaviour:
   speakerName: Adit
   text: oh iya mas, Sudah sejak berapa lama jualan di gerobak ini, kok kekknya gak
     pernah lihat sebelumnya.
-  charSprite: {fileID: 0}
+  charSprite: {fileID: 149528332737663954, guid: 5cd7f3a89ae42004e9fc0705eed4fb9b, type: 3}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
@@ -23,3 +23,4 @@ MonoBehaviour:
   isAnonymous: 0
   isDoneEating: 0
   placeIndex: 1
+  isLeaving: 0

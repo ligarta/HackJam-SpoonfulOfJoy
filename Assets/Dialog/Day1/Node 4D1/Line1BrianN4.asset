@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
   speakerName: ???
   text: Permisi apakah masih buka?
-  charSprite: {fileID: 1446912192618218681, guid: aa01f679dfb43964bb3414888e07443d, type: 3}
+  charSprite: {fileID: 1184036050114124711, guid: e7b886210ba714f47b9560c701eaed06, type: 3}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
@@ -22,3 +22,4 @@ MonoBehaviour:
   isAnonymous: 1
   isDoneEating: 0
   placeIndex: 3
+  isLeaving: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: WrongNode5Brian
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: 
+  speakerName: ...
   text: Mana di cancel juga
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}

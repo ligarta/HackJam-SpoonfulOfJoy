@@ -262,7 +262,7 @@ public class DayManager : MonoBehaviour
     }
 
     private IEnumerator SetFoodSpriteAfterDialogStart()
-    {
+    { 
         // Wait a frame for dialog to start
         yield return null;
 
@@ -343,10 +343,10 @@ public class DayManager : MonoBehaviour
 
         if (orderTextPanels != null && currentIndex < orderTextPanels.Length)
         {
-            orderTextPanels[currentIndex].SetActive(true);
-            dialogManager.SetDialogPanel(orderTextPanels[currentIndex]);
-            cookingStation.dialogPanel = orderTextPanels[currentIndex];
-            cookingManagerUI.dialogPanel = orderTextPanels[currentIndex];
+            orderTextPanels[0].SetActive(true);
+            dialogManager.SetDialogPanel(orderTextPanels[0]);
+            cookingStation.dialogPanel = orderTextPanels[0];
+            cookingManagerUI.dialogPanel = orderTextPanels[0];
         }
 
         if (orderDialogtextnametext != null && currentIndex < orderDialogtextnametext.Length)

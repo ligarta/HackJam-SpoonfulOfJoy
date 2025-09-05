@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: 1 7
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: 
-  text: 
-  charSprite: {fileID: 0}
+  speakerName: Brian
+  text: 'Sebentar, kayaknya tadi. '
+  charSprite: {fileID: 1446912192618218681, guid: aa01f679dfb43964bb3414888e07443d, type: 3}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
   isShake: 0
   isAnonymous: 0
   isDoneEating: 0
-  placeIndex: 0
+  placeIndex: 3
   isLeaving: 0

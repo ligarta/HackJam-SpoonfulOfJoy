@@ -12,5 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b15dba2069980048b67f528cc3c3f81, type: 3}
   m_Name: Node5D1
   m_EditorClassIdentifier: Assembly-CSharp::DialogNode
-  lines: []
+  lines:
+  - {fileID: 11400000, guid: e7f27f92c67b9004ab99f9c6961d451d, type: 2}
+  - {fileID: 11400000, guid: 0f0520d50c13b19489b31bc8d06b30f0, type: 2}
+  - {fileID: 11400000, guid: a5e6b2a5dc89dc544a2fa4bd42e3bea6, type: 2}
+  - {fileID: 11400000, guid: 24de9353305462442ad24fbb158be181, type: 2}
+  - {fileID: 11400000, guid: 962f217c1cecac449bf950e945310309, type: 2}
+  - {fileID: 11400000, guid: 81016873eb2337840a491613c1d56fd3, type: 2}
+  - {fileID: 11400000, guid: 0e53cf927186a144e8628862b97c6830, type: 2}
+  - {fileID: 11400000, guid: e217630c968abaf47a3f9308bba389f6, type: 2}
+  - {fileID: 11400000, guid: 285ed654b4211f24b99f8090be4db40e, type: 2}
+  - {fileID: 11400000, guid: 7adbe8295f9c1584aab0692282ce3ec0, type: 2}
+  - {fileID: 11400000, guid: e10a55968e38e224080228153f6af590, type: 2}
+  - {fileID: 11400000, guid: 53a7f22902da9674592a94af2b713016, type: 2}
+  - {fileID: 11400000, guid: a80604ef01afd6a40ae3b8e988c4dca7, type: 2}
+  - {fileID: 11400000, guid: e716f999ece4a77469f26a6fd5266341, type: 2}
+  - {fileID: 11400000, guid: f9b066706b7cf2c43a1b097dda442b53, type: 2}
+  - {fileID: 11400000, guid: cee1995148588e64aad6f424f787d04b, type: 2}
+  - {fileID: 11400000, guid: 4d0dcac773e89ed4680a1652c7b21edc, type: 2}
+  - {fileID: 11400000, guid: ebdfbf83973414b4b980936bdd2beaf9, type: 2}
+  - {fileID: 11400000, guid: b0e37414d62979a4e921a16f4594cdcd, type: 2}
+  - {fileID: 11400000, guid: 2259648033c49b441b2ed523f059910c, type: 2}
+  - {fileID: 11400000, guid: 44bde190c477c9a4983df3489d2ba314, type: 2}
+  - {fileID: 11400000, guid: e4883b29cd4e1b149b4e3785783cc2aa, type: 2}
+  - {fileID: 11400000, guid: e22b3f5a3b54f9c4a92b27d57083a1da, type: 2}
+  - {fileID: 11400000, guid: 1f63d94f31f880c49a680005fbe96f2d, type: 2}
+  - {fileID: 11400000, guid: 79a6db65bc7eb1945bdb0181a5490ba9, type: 2}
+  - {fileID: 11400000, guid: 6fc8eacf729456a499990adfca8b436a, type: 2}
+  - {fileID: 11400000, guid: 1750727654f3a194db36105877e822b1, type: 2}
+  - {fileID: 11400000, guid: 5785af8725e686c48ababe37038e9dcf, type: 2}
+  - {fileID: 11400000, guid: 4467b01a431785f429c037ec324f3bd8, type: 2}
+  - {fileID: 11400000, guid: 2c9c40e8f8f6926439681ffa5c4f9f65, type: 2}
   nextNode: {fileID: 0}

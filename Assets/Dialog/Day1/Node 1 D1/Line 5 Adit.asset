@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
   speakerName: Adit
   text: Atas nama Adit, Mas
-  charSprite: {fileID: 0}
+  charSprite: {fileID: 149528332737663954, guid: 5cd7f3a89ae42004e9fc0705eed4fb9b, type: 3}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1

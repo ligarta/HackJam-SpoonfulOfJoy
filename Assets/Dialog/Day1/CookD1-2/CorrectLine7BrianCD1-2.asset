@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: CorrectLine7BrianCD1-2
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: 
+  speakerName: Brian
   text: Ini pasti bukan kopi sasetan, Ini Kopi Toraja. Varian Arabika, kan? Ada sedikit
     hint floral dan earthy. Kamu tahu cara menyeduhnya.
   charSprite: {fileID: 0}
