@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a7bea63d516044b96a2438b2ad7c85, type: 3}
+  m_Name: Day2
+  m_EditorClassIdentifier: Assembly-CSharp::DayData
+  dayNumber: 2
+  events:
+  - eventName: 
+    dialogToStart: {fileID: 11400000, guid: d97d71dbb187ac64d98728c3eede8ea9, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 0
+    correctFoodDialog: {fileID: 0}
+    incorrectFoodDialog: {fileID: 0}
+    correctDishType: 
+  - eventName: 
+    dialogToStart: {fileID: 11400000, guid: 64a84ec8338d75241baea22e5ad90604, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 1
+    correctFoodDialog: {fileID: 11400000, guid: 5420ff66d2c28f641a5211c62fb28a23, type: 2}
+    incorrectFoodDialog: {fileID: 11400000, guid: f68a1a79f12ec234e9a37a136423dd4c, type: 2}
+    correctDishType: 02000000
+  - eventName: 
+    dialogToStart: {fileID: 11400000, guid: b4a5bc74230496a40a2e086fed1527e7, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 0
+    correctFoodDialog: {fileID: 0}
+    incorrectFoodDialog: {fileID: 0}
+    correctDishType: 
+  - eventName: 
+    dialogToStart: {fileID: 11400000, guid: 7313330edd5d0a6429577b06337a17c6, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 1
+    correctFoodDialog: {fileID: 11400000, guid: 68dbbecdbef53974584ecb1002d0cb92, type: 2}
+    incorrectFoodDialog: {fileID: 11400000, guid: 78251af14218d05499f1d97560be41b0, type: 2}
+    correctDishType: 08000000
+  - eventName: 
+    dialogToStart: {fileID: 11400000, guid: 7b6ceaa4c3e78b04ab58efce12689eac, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 0
+    correctFoodDialog: {fileID: 0}
+    incorrectFoodDialog: {fileID: 0}
+    correctDishType: 
+  - eventName: 
+    dialogToStart: {fileID: 11400000, guid: 4584816fab215784982fc5539308ef41, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 0
+    correctFoodDialog: {fileID: 11400000, guid: 5ccdd79bc150da649b20f84fecdd1009, type: 2}
+    incorrectFoodDialog: {fileID: 11400000, guid: f39fce1c1aa9f2844be18fcc23d5b057, type: 2}
+    correctDishType: 06000000
+  - eventName: 
+    dialogToStart: {fileID: 11400000, guid: d0be3269afd85b944a3b2ee56267000b, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 0
+    correctFoodDialog: {fileID: 0}
+    incorrectFoodDialog: {fileID: 0}
+    correctDishType: 
+  - eventName: 
+    dialogToStart: {fileID: 0}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 0
+    correctFoodDialog: {fileID: 0}
+    incorrectFoodDialog: {fileID: 0}
+    correctDishType: 

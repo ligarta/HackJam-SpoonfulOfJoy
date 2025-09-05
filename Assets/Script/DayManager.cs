@@ -51,7 +51,26 @@ public class DayManager : MonoBehaviour
     }
     void assignCurrentDish(DishType a)
     {
-        foodSpriteRenderer[currentSelectedDishIndex].sprite = cookingManagerUI.menuSprites[(int)a];
+        if (a == DishType.None)
+        {
+            Debug.LogWarning("[DayManager] assignCurrentDish: Tried to assign None dish, skipping.");
+            return;
+        }
+
+        if (currentSelectedDishIndex < 0 || currentSelectedDishIndex >= foodSpriteRenderer.Length)
+        {
+            Debug.LogError($"[DayManager] assignCurrentDish: Invalid food slot index {currentSelectedDishIndex}");
+            return;
+        }
+
+        int dishIndex = (int)a;
+        if (dishIndex < 0 || dishIndex >= cookingManagerUI.menuSprites.Count)
+        {
+            Debug.LogError($"[DayManager] assignCurrentDish: Dish index {dishIndex} out of range!");
+            return;
+        }
+
+        foodSpriteRenderer[currentSelectedDishIndex].sprite = cookingManagerUI.menuSprites[dishIndex];
     }
     void StartDay(int index)
     {
@@ -247,18 +266,26 @@ public class DayManager : MonoBehaviour
 
         DialogNode resultDialog = success ? ev.correctFoodDialog : ev.incorrectFoodDialog;
 
-        if (resultDialog != null)
+        if (resultDialog != null && resultDialog.lines.Length > 0)
         {
-            assignCurrentDialogText(resultDialog.lines[0].placeIndex - 1);
+            int safeIndex = Mathf.Max(0, resultDialog.lines[0].placeIndex - 1);
+            assignCurrentDialogText(safeIndex);
             dialogManager.StartDialog(resultDialog);
         }
         else
         {
             Debug.LogWarning("[DayManager] No result dialog found!");
         }
+
         _CookingEventDone?.Invoke();
         cookingManagerUI.ResetCookingUI();
-        assignCurrentDish(currentDish);
+
+        // Only assign dish if valid
+        if (currentDish != DishType.None)
+        {
+            assignCurrentDish(currentDish);
+        }
+
         dialogManager.isCooking = false;
         StartCoroutine(SetFoodSpriteAfterDialogStart());
 
@@ -348,9 +375,9 @@ public class DayManager : MonoBehaviour
         if (orderTextPanels != null && currentIndex < orderTextPanels.Length)
         {
             orderTextPanels[0].SetActive(true);
-            dialogManager.SetDialogPanel(orderTextPanels[0]);
-            cookingStation.dialogPanel = orderTextPanels[0];
-            cookingManagerUI.dialogPanel = orderTextPanels[0];
+            dialogManager.SetDialogPanel(orderTextPanels[currentIndex]);
+            cookingStation.dialogPanel = orderTextPanels[currentIndex];
+            cookingManagerUI.dialogPanel = orderTextPanels[currentIndex];
         }
 
         if (orderDialogtextnametext != null && currentIndex < orderDialogtextnametext.Length)
@@ -444,21 +471,6 @@ public class DayManager : MonoBehaviour
                 if (sr != null) sr.sprite = null;
             }
         }
-    }
-
-
-    void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1f)
-        // {
-        //     MenuPanel.SetActive(true);
-        //     Time.timeScale = 0f;
-        // }
-        // else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0f)
-        // {
-        //     Time.timeScale = 1f;
-        //     MenuPanel.SetActive(false);
-        // }
     }
     
 }

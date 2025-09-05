@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
+  m_Name: NewDialogLine
+  m_EditorClassIdentifier: Assembly-CSharp::DialogLine
+  speakerName: Adit
+  text: SOTO DAGING
+  charSprite: {fileID: 8190574620929871797, guid: 89e8c41e3b0e5b544a89fbc7f67c4c79, type: 3}
+  spokenText: {fileID: 0}
+  moorOrEffect: {fileID: 0}
+  durasi: 1
+  isShake: 0
+  isAnonymous: 0
+  isDoneEating: 0
+  placeIndex: 2
+  isLeaving: 0
