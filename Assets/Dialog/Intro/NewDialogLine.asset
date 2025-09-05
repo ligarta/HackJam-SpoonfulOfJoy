@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
-  m_Name: CorrectL3Penjual
+  m_Name: NewDialogLine
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: ...
-  text: Sama sama, kalau ada sesuatu katakan saja
-  charSprite: {fileID: 0}
+  speakerName: 
+  text: ' Malang, 2025. Sebuah kota yang denyut nadinya adalah langkah kaki ribuan
+    mahasiswa. Mereka datang dengan mimpi, pergi dengan kenangan, dan di sela-selanya,
+    mereka butuh makan.'
+  charSprite: {fileID: 6089078673269259537, guid: 014a37d5ac4346b4280d00c8e4546ba4, type: 3}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
   isShake: 0
   isAnonymous: 0
   isDoneEating: 0
-  placeIndex: 4
+  placeIndex: 0

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
-  m_Name: CorrectL3Penjual
+  m_Name: NewDialogLine 4
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: ...
-  text: Sama sama, kalau ada sesuatu katakan saja
-  charSprite: {fileID: 0}
+  speakerName: 
+  text: dan kehangatan semeja bisa menyatukan orang-orang yang tak saling kenalkan.
+  charSprite: {fileID: -5151633246733904872, guid: a5bbffa4ed3c7fd4a8b3f423a6114078, type: 3}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
   isShake: 0
   isAnonymous: 0
   isDoneEating: 0
-  placeIndex: 4
+  placeIndex: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: WrongL6Adit
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: 
+  speakerName: Adit
   text: "Hmm, aman kok\u2026 cuma rasanya agak aneh aja, apa boleh buat juga saya
     sudah laper banget tadi kayak udah mau pingsan."
   charSprite: {fileID: 0}

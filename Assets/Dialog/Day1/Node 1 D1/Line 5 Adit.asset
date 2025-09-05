@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Line 5 Adit
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
   speakerName: Adit
-  text: Atas nama adit mas
+  text: Atas nama Adit, Mas
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

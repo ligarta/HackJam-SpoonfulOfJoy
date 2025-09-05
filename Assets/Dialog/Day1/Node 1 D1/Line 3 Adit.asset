@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Line 3 Adit
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
   speakerName: ???
-  text: Wah, seriusan malam pertama? keren banget bisa jadi pelanggan pertama, Hmm,
-    ada rekomendasi, mas? Yang bisa bikin badan anget
+  text: Wah, seriusan malam pertama? Keren banget bisa jadi pelanggan pertama, Hmm,
+    ada rekomendasi, Mas? Yang bisa bikin badan anget
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

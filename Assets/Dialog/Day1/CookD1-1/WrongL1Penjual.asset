@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: WrongL1Penjual
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: 
-  text: Ini adit pesanan untuk kamu
+  speakerName: ...
+  text: Ini Adit pesanan untuk kamu
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

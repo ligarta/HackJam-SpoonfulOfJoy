@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: WrongL2.2Adit
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: 
+  speakerName: Adit
   text: "Perasaan tadi aku pesen yang berkuah, tapi ini kayaknya\u2026 bukan yang
     berkuah deh."
   charSprite: {fileID: 0}
