@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
-  m_Name: CookLine1D1-2
+  m_Name: WrongNode2Brian
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: Brian
-  text: Kopi Hitam Satu
+  speakerName: 
+  text: Mas saya tidak ingat pesan ini ya?
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
@@ -21,5 +21,5 @@ MonoBehaviour:
   isShake: 0
   isAnonymous: 0
   isDoneEating: 0
-  placeIndex: 3
+  placeIndex: 0
   isLeaving: 0

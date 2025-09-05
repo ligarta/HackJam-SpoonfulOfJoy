@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
-  m_Name: CookLine1D1-2
+  m_Name: CorrectLine3BrianCD1-2
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: Brian
-  text: Kopi Hitam Satu
+  speakerName: 
+  text: Gilingannya pas, suhu airnya sekitar 92 derajat Celsius?
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b15dba2069980048b67f528cc3c3f81, type: 3}
+  m_Name: CorrectNodeCD1-2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogNode
+  lines:
+  - {fileID: 11400000, guid: 1f90a130673884445a65775239086bd5, type: 2}
+  - {fileID: 11400000, guid: 3515e9faad07e1649bf79b01ebc40934, type: 2}
+  - {fileID: 11400000, guid: 90ed3403248df7349b6f84c04746169b, type: 2}
+  - {fileID: 11400000, guid: 8a06224779bf8324d83b6c0f83ee699c, type: 2}
+  - {fileID: 11400000, guid: 1d2c855203544e14d93faae09ec4093a, type: 2}
+  - {fileID: 11400000, guid: 04d0050f727ea584d9b8f46a988c175c, type: 2}
+  - {fileID: 11400000, guid: 56c41319d274c2b4a8fb8e7ea2837cae, type: 2}
+  - {fileID: 11400000, guid: 98273450f3dea374d8747051b2cabc4f, type: 2}
+  - {fileID: 11400000, guid: 6a188abdc9a8ddf4b90cdebb09149e3f, type: 2}
+  nextNode: {fileID: 0}
