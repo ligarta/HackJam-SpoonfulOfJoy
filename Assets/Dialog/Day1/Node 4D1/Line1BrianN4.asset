@@ -19,6 +19,6 @@ MonoBehaviour:
   moorOrEffect: {fileID: 0}
   durasi: 1
   isShake: 0
-  isAnonymous: 0
+  isAnonymous: 1
   isDoneEating: 0
   placeIndex: 3

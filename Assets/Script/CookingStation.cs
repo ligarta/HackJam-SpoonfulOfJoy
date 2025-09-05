@@ -8,7 +8,7 @@ public class CookingStation : MonoBehaviour
     public event Action<IngredientType> OnIngredientPicked;
     public event Action<DishType> OnCooked; 
     public event Action<string> OnFeedback;      // UI message
-
+    public event Action<List<IngredientType>> _UpdateUI;
     private List<IngredientType> buffer = new();
     public GameObject dialogPanel;
 
@@ -24,6 +24,7 @@ public class CookingStation : MonoBehaviour
         OnIngredientPicked?.Invoke(ing);
         buffer.Add(ing);
         OnFeedback?.Invoke($"Tambahkan {ing}.");
+        _UpdateUI?.Invoke(buffer);
     }
 
     public void Cook()
@@ -36,7 +37,7 @@ public class CookingStation : MonoBehaviour
 
         var dish = RecipeDB.MatchRecipe(buffer);
         buffer.Clear();
-
+        _UpdateUI?.Invoke(buffer);
         if (dish == DishType.None)
         {
             OnFeedback?.Invoke("Resep tidak dikenal. (Gagal)");
@@ -57,5 +58,18 @@ public class CookingStation : MonoBehaviour
     {
         buffer.Clear();
         OnFeedback?.Invoke("Batal. Buffer kosong.");
+    }
+
+    public void RemoveFromBuffer(int index)
+    {
+        if(index < buffer.Count)
+        {
+            buffer.RemoveAt(index);
+            _UpdateUI?.Invoke(buffer);
+        }
+    }
+    public List<IngredientType> getBuffer()
+    {
+        return buffer;
     }
 }

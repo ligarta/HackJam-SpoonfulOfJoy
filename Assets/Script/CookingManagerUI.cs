@@ -10,13 +10,16 @@ public class CookingUIManager : MonoBehaviour
     public Sprite defaultSprite;
     public List<Sprite> ingredientSprites; 
     public List<Sprite> menuSprites;
+    public List<TextMeshProUGUI> cookingtextPaper;
     public Image menuResult;
     public TextMeshProUGUI testText;
     private int currentSlot = 0;
     public GameObject dialogPanel;
+    public Sprite TransparentPlaceHolder;
 
     void Start()
     {
+        station._UpdateUI += UpdateIngredientSlot;
         station.OnCooked += ShowCookResult;
         station.OnIngredientPicked += HandleIngredientPicked;
         station.OnFeedback += ShowFeedback;
@@ -24,7 +27,19 @@ public class CookingUIManager : MonoBehaviour
         originalSecondStageObjectPosition = secondStageObject;
         originalSecondObjectPos = secondStageObject.anchoredPosition;
     }
-
+    void UpdateIngredientSlot(List<IngredientType> buffer)
+    {
+        for (int i = 0; i<3;i++)
+        {
+            ingredientSlots[i].sprite = TransparentPlaceHolder;
+            cookingtextPaper[i].text = "";
+        }
+        for (int a = 0; a < buffer.Count; a++)
+        {
+            ingredientSlots[a].sprite = ingredientSprites[(int)buffer[a]];
+            cookingtextPaper[a].text = buffer[a].ToString();
+        }
+    }
     void HandleIngredientPicked(IngredientType ing)
     {
         if (currentSlot < ingredientSlots.Count)
@@ -44,7 +59,6 @@ public class CookingUIManager : MonoBehaviour
         SlideSecondStageCookingUI();
         currentDish = dish;
         menuResult.sprite = GetMenuSprite(dish);
-        menuResult.SetNativeSize();
         testText.text = RecipeDB.DishDisplayName(dish);
     }
     public void ResetSlots()

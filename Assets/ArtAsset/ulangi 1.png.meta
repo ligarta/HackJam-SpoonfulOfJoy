@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 398ab6c63816c7a42ac8b083684e8d66
+guid: 54c602d4c1469934db15effb7a4413ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6433199806801221958
-    second: Kluwek Line_0
+      213: 8528845279452998183
+    second: ulangi_0
+  - first:
+      213: -119461369856797176
+    second: ulangi_1
+  - first:
+      213: -479961921221453938
+    second: ulangi_2
+  - first:
+      213: 3310421472654401097
+    second: ulangi_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kluwek Line_0
+      name: ulangi_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 1000
+        x: 1505
+        y: 901
+        width: 283
+        height: 150
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6499f75c321574950800000000000000
-      internalID: 6433199806801221958
+      spriteID: 72a201a089b8c5670800000000000000
+      internalID: 8528845279452998183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ulangi 1_0
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 332
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9245412dad24f54faeb1d5c4f069b35
+      internalID: 1983848405
       vertices: []
       indices: 
       edges: []
@@ -125,7 +156,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0f73eea5adc6e4046a6b0e5e0ed94e14
+    spriteID: 4cfd1065edb303a4ab4a33e21c0fc3af
     internalID: 0
     vertices: []
     indices: 
@@ -135,9 +166,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":1000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1920.0,"y":1080.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":4.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Kluwek Line_0: 6433199806801221958
+      ulangi 1_0: 1983848405
+      ulangi_0: 8528845279452998183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -42,12 +42,26 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private float originalOrthoSize;
+    private Vector2 originalScreenPosition;
+
     void Start()
     {
         if (dayManager != null)
+        {
             dayManager._CookingEvent += HandleCookingUI;
             dayManager._CookingEventDone += HandleCookingFinished;
+        }
+        if (cinemachineCamera != null)
+        {
+            originalOrthoSize = cinemachineCamera.Lens.OrthographicSize;
+        }
+        if (cinemachineComposer != null)
+        {
+            originalScreenPosition = cinemachineComposer.Composition.ScreenPosition;
+        }
     }
+
 
     void OnDestroy()
     {
@@ -74,30 +88,32 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.Dialogue;
 
-        LeanTween.cancel(currentCamera.gameObject);
-        Vector3 original = new Vector3(0, 0, -10);
+        // Clear follow target
+        cinemachineCamera.Follow = null;
+
         float duration = 2f;
 
-        // Tween position
-        LeanTween.move(currentCamera.gameObject, original, duration).setEase(LeanTweenType.easeInOutQuad);
+        // Tween zoom back to original
+        LeanTween.value(gameObject, cinemachineCamera.Lens.OrthographicSize, originalOrthoSize, duration)
+            .setEase(LeanTweenType.easeInOutQuad)
+            .setOnUpdate((float val) =>
+            {
+                cinemachineCamera.Lens.OrthographicSize = val;
+            });
 
-        // Tween zoom reset
-        if (currentCamera.orthographic)
-        {
-            LeanTween.value(currentCamera.gameObject, currentCamera.orthographicSize, 5f, duration)
-                .setEase(LeanTweenType.easeInOutQuad)
-                .setOnUpdate((float val) => currentCamera.orthographicSize = val);
-        }
-        else
-        {
-            LeanTween.value(currentCamera.gameObject, currentCamera.fieldOfView, 60f, duration)
-                .setEase(LeanTweenType.easeInOutQuad)
-                .setOnUpdate((float val) => currentCamera.fieldOfView = val);
-        }
+        // Tween screen composition back
+        Vector2 startPos = cinemachineComposer.Composition.ScreenPosition;
+        LeanTween.value(gameObject, 0f, 1f, duration)
+            .setEase(LeanTweenType.easeInOutQuad)
+            .setOnUpdate((float t) =>
+            {
+                cinemachineComposer.Composition.ScreenPosition =
+                    Vector2.Lerp(startPos, originalScreenPosition, t);
+            });
     }
 
-    // Camera focus metod
-    public void FocusOnCustomerWhileCooking()
+// Camera focus metod
+public void FocusOnCustomerWhileCooking()
     {
         if (currentCamera == null || currentSelectedCustomerSlot == null) return;
 

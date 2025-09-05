@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f28a1e02b910b4c86391c87b373588, type: 3}
   m_Name: Line8PenjualN4
   m_EditorClassIdentifier: Assembly-CSharp::DialogLine
-  speakerName: 
-  text: 
+  speakerName: ...
+  text: Mana aku tau, kan kamu pelanggan pertama ku
   charSprite: {fileID: 0}
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
@@ -21,4 +21,4 @@ MonoBehaviour:
   isShake: 0
   isAnonymous: 0
   isDoneEating: 0
-  placeIndex: 0
+  placeIndex: 4

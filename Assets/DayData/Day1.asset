@@ -22,9 +22,9 @@ MonoBehaviour:
     incorrectFoodDialog: {fileID: 0}
     correctDishType: 
   - eventName: AditPertama
-    dialogToStart: {fileID: 11400000, guid: 02062240cef335e4d84367dfc3bc4d53, type: 2}
+    dialogToStart: {fileID: 11400000, guid: 3e9a5eb04e944f441b62c64643f990d0, type: 2}
     nextDialogNode: {fileID: 0}
-    isCookingEvent: 0
-    correctFoodDialog: {fileID: 0}
-    incorrectFoodDialog: {fileID: 0}
-    correctDishType: 
+    isCookingEvent: 1
+    correctFoodDialog: {fileID: 11400000, guid: 94ff0d440a07fc340b053faba305b321, type: 2}
+    incorrectFoodDialog: {fileID: 11400000, guid: af1e30686abee8847943c1007cd3d955, type: 2}
+    correctDishType: 0200000001000000

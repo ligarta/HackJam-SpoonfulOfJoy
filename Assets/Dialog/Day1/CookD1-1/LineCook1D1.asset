@@ -21,4 +21,4 @@ MonoBehaviour:
   isShake: 0
   isAnonymous: 0
   isDoneEating: 0
-  placeIndex: 0
+  placeIndex: 1
