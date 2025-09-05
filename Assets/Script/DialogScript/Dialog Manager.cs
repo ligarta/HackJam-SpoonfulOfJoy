@@ -32,7 +32,6 @@ public class DialogManager : MonoBehaviour
     DialogNode currentNode;
     int currentLineIndex = 0;
     bool isTyping = false;
-    bool isChoice = false;
     [SerializeField] private String NextScene;
     [SerializeField] private String chatWith;
     public bool isCooking = false;
@@ -165,25 +164,31 @@ public class DialogManager : MonoBehaviour
 
     public void clicking()
     {
-        if (isChoice) return;   // removed choice
+        Debug.Log("[DialogManager] Clicking triggered.");
 
         if (audioSource != null && audioClick != null)
         {
+            Debug.Log("[DialogManager] Playing click sound.");
             audioSource.clip = audioClick;
             audioSource.Play();
         }
 
         if (isTyping)
         {
+            Debug.Log("[DialogManager] Currently typing -> skip to end of line.");
             StopAllCoroutines();
             DialogLine currentLine = currentNode.lines[currentLineIndex];
             dialogText.text = currentLine.text;
             dialogText.maxVisibleCharacters = currentLine.text.Length;
-            dialogText.rectTransform.sizeDelta = new Vector2(dialogText.rectTransform.sizeDelta.x, dialogText.preferredHeight);
+            dialogText.rectTransform.sizeDelta = new Vector2(
+                dialogText.rectTransform.sizeDelta.x,
+                dialogText.preferredHeight
+            );
             isTyping = false;
 
             if (audioSource != null && audioSource.isPlaying)
             {
+                Debug.Log("[DialogManager] Stopping typing audio.");
                 audioSource.Stop();
             }
         }
@@ -191,10 +196,12 @@ public class DialogManager : MonoBehaviour
         {
             if (isCooking && currentLineIndex >= currentNode.lines.Length - 1)
             {
+                Debug.Log("[DialogManager] In cooking mode and last line reached -> return.");
                 return;
             }
 
             currentLineIndex++;
+            Debug.Log("[DialogManager] Advancing to line index: " + currentLineIndex);
             DisplayCurrentLine();
         }
     }
@@ -225,6 +232,7 @@ public class DialogManager : MonoBehaviour
         if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
             inputDetected = true;
+            Debug.Log(IsDialogActive());
         }
         if (inputDetected && !isCooking && IsDialogActive())
         {

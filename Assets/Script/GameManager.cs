@@ -10,7 +10,6 @@ public enum GameState
 }
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
 
     [Header("References")]
     [SerializeField] private DayManager dayManager;
@@ -27,38 +26,19 @@ public class GameManager : MonoBehaviour
     public float zoomSize = 5f;
     public float smoothSpeed = 2f;
 
-    private Vector3 desiredViewportPos = new Vector3(0.25f, 0.5f, 0f);
 
     public GameState currentState = GameState.Dialogue;
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    private float originalOrthoSize;
-    private Vector2 originalScreenPosition;
-
     void Start()
     {
         if (dayManager != null)
         {
             dayManager._CookingEvent += HandleCookingUI;
             dayManager._CookingEventDone += HandleCookingFinished;
-        }
-        if (cinemachineCamera != null)
-        {
-            originalOrthoSize = cinemachineCamera.Lens.OrthographicSize;
-        }
-        if (cinemachineComposer != null)
-        {
-            originalScreenPosition = cinemachineComposer.Composition.ScreenPosition;
         }
     }
 
@@ -84,14 +64,42 @@ public class GameManager : MonoBehaviour
         FocusOnCustomerWhileCooking();
     }
 
+    // Add at class level
+    private float originalOrthoSize;
+    private Vector2 originalScreenPosition;
+    private Transform originalFollowTarget;
+
+    public void FocusOnCustomerWhileCooking()
+    {
+        if (currentCamera == null || currentSelectedCustomerSlot == null) return;
+
+        originalFollowTarget = cinemachineCamera.Follow;
+        originalOrthoSize = cinemachineCamera.Lens.OrthographicSize;
+        originalScreenPosition = cinemachineComposer.Composition.ScreenPosition;
+
+        // Focus on customer
+        cinemachineCamera.Follow = currentSelectedCustomerSlot.transform;
+
+        LeanTween.value(gameObject, originalOrthoSize, 3.35f, 1f).setEaseOutQuad()
+            .setOnUpdate((float val) => {
+                cinemachineCamera.Lens.OrthographicSize = val;
+            });
+
+        LeanTween.value(gameObject, originalScreenPosition.x, -0.3f, 2f).setEaseOutQuad()
+            .setOnUpdate((float val) => {
+                // Important: assign a *new Vector2*, don’t call Set()
+                cinemachineComposer.Composition.ScreenPosition = new Vector2(val, 0f);
+            });
+    }
+
     public void CookingToDialogue()
     {
         currentState = GameState.Dialogue;
 
-        // Clear follow target
-        cinemachineCamera.Follow = null;
-
         float duration = 2f;
+
+        // Restore follow
+        cinemachineCamera.Follow = originalFollowTarget;
 
         // Tween zoom back to original
         LeanTween.value(gameObject, cinemachineCamera.Lens.OrthographicSize, originalOrthoSize, duration)
@@ -111,19 +119,4 @@ public class GameManager : MonoBehaviour
                     Vector2.Lerp(startPos, originalScreenPosition, t);
             });
     }
-
-// Camera focus metod
-public void FocusOnCustomerWhileCooking()
-    {
-        if (currentCamera == null || currentSelectedCustomerSlot == null) return;
-
-        cinemachineCamera.Follow = currentSelectedCustomerSlot.transform;
-        LeanTween.value(gameObject, 5, 3.35f, 1f).setEaseOutQuad()
-        .setOnUpdate((float val) => {
-            cinemachineCamera.Lens.OrthographicSize = val;
-        });
-        LeanTween.value(gameObject, 0, -0.3f, 2f).setEaseOutQuad().setOnUpdate((float val) => {
-            cinemachineComposer.Composition.ScreenPosition.Set(val, 0);
-        });
     }
-}

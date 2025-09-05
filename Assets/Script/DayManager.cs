@@ -24,7 +24,7 @@ public class DayManager : MonoBehaviour
     [SerializeField] GameObject[] orderTextPanels;
     [SerializeField] SpriteRenderer[] customerSpriteRenderer;
     [SerializeField] SpriteRenderer[] foodSpriteRenderer;
-
+    [SerializeField] int currentSelectedDishIndex;
     void Start()
     {
         Debug.Log("[DayManager] Start() called");
@@ -33,7 +33,7 @@ public class DayManager : MonoBehaviour
     }
     void assignCurrentDish(DishType a)
     {
-        foodSpriteRenderer[dialogManager.currentLine.placeIndex].sprite = cookingManagerUI.menuSprites[(int)a];
+        foodSpriteRenderer[currentSelectedDishIndex].sprite = cookingManagerUI.menuSprites[(int)a];
     }
     void StartDay(int index)
     {
@@ -107,6 +107,7 @@ public class DayManager : MonoBehaviour
         if (ev.isCookingEvent)
         {
             Debug.Log("[DayManager] Setting up cooking event");
+            currentSelectedDishIndex = currentEventIndex-1;
             assignCurrentOrderDialogText(currentselectedIndex - 1);
         }
         else
@@ -139,6 +140,7 @@ public class DayManager : MonoBehaviour
             if (cookingStation != null)
             {
                 cookingStation.gameObject.SetActive(true);
+                cookingStation.OnCooked -= HandleCookingFinished;
                 cookingStation.OnCooked += HandleCookingFinished;
             }
 
@@ -170,10 +172,6 @@ public class DayManager : MonoBehaviour
     {
         Debug.Log($"[DayManager] HandleCookingFinished() dish={dish}");
         currentDish = dish;
-        if (cookingStation != null)
-        {
-            cookingStation.OnCooked -= HandleCookingFinished;
-        }
     }
 
     public void cookingConfirmed()
@@ -207,6 +205,7 @@ public class DayManager : MonoBehaviour
 
         if (resultDialog != null)
         {
+            assignCurrentDialogText(resultDialog.lines[0].placeIndex - 1);
             dialogManager.StartDialog(resultDialog);
         }
         else
@@ -217,8 +216,6 @@ public class DayManager : MonoBehaviour
         cookingManagerUI.ResetCookingUI();
         assignCurrentDish(currentDish);
         dialogManager.isCooking = false;
-
-        // Wait for dialog to start before accessing current line
         StartCoroutine(SetFoodSpriteAfterDialogStart());
 
         dialogManager.OnDialogFinished += HandleDialogFinished;

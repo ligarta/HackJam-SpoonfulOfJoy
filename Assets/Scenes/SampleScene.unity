@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 3214945960317518467, guid: a31c13d82548e614cae56eea933df5aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1863,6 +1863,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2020,6 +2021,29 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603c8acd510b7da4181c956d67a3ab5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  dayManager: {fileID: 593100672}
+  dialogManager: {fileID: 593100671}
+  cookingStation: {fileID: 593100668}
+  cinemachineCamera: {fileID: 940767036}
+  cinemachineComposer: {fileID: 940767035}
+  OriginalCameraPosition: {fileID: 519420032}
+  currentCamera: {fileID: 519420031}
+  currentSelectedCustomerSlot: {fileID: 0}
+  zoomSize: 3
+  smoothSpeed: 4
+  currentState: 0
 --- !u!1 &574295442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,7 +2193,6 @@ GameObject:
   - component: {fileID: 593100668}
   - component: {fileID: 593100672}
   - component: {fileID: 593100671}
-  - component: {fileID: 593100673}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2236,6 +2259,33 @@ MonoBehaviour:
   testText: {fileID: 364592457}
   dialogPanel: {fileID: 0}
   TransparentPlaceHolder: {fileID: 1983848405, guid: 54c602d4c1469934db15effb7a4413ac, type: 3}
+  dishCookSequence1:
+  - {fileID: -6762196363753940984, guid: 9881596df7d268e49b89d876293546f7, type: 3}
+  - {fileID: 7925469211814256681, guid: 653e17d0516df93419201b923e4e6c3f, type: 3}
+  - {fileID: -779382018651222707, guid: 87c478b97b6e07d4b9d7e61cf91dc565, type: 3}
+  - {fileID: 8725146148843571270, guid: 9abfad272dca8794eb4953e4fe6cb688, type: 3}
+  - {fileID: -1125157930888261513, guid: df63de50d14b50e488595eaf43703d9b, type: 3}
+  - {fileID: 7264473310971067325, guid: ad698ee3526a6d5449f2daca1b2f0a83, type: 3}
+  - {fileID: 2205051668532948484, guid: 2763876b2043c9d4f93e70da6263439c, type: 3}
+  - {fileID: -9099911674440506468, guid: a31c13d82548e614cae56eea933df5aa, type: 3}
+  dishCookSequence2:
+  - {fileID: 6212836867027663660, guid: 9881596df7d268e49b89d876293546f7, type: 3}
+  - {fileID: -1265242932842401503, guid: 653e17d0516df93419201b923e4e6c3f, type: 3}
+  - {fileID: 2358973006781443086, guid: 87c478b97b6e07d4b9d7e61cf91dc565, type: 3}
+  - {fileID: -1524813094932496804, guid: 9abfad272dca8794eb4953e4fe6cb688, type: 3}
+  - {fileID: 9009188997545580477, guid: df63de50d14b50e488595eaf43703d9b, type: 3}
+  - {fileID: -1889537682279096779, guid: ad698ee3526a6d5449f2daca1b2f0a83, type: 3}
+  - {fileID: -2293455278426426882, guid: 2763876b2043c9d4f93e70da6263439c, type: 3}
+  - {fileID: 1269303145479130495, guid: a31c13d82548e614cae56eea933df5aa, type: 3}
+  dishCookSequence3:
+  - {fileID: -3871282176248643061, guid: 9881596df7d268e49b89d876293546f7, type: 3}
+  - {fileID: -1265242932842401503, guid: 653e17d0516df93419201b923e4e6c3f, type: 3}
+  - {fileID: -531677432932461060, guid: 87c478b97b6e07d4b9d7e61cf91dc565, type: 3}
+  - {fileID: -1267194453202096146, guid: 9abfad272dca8794eb4953e4fe6cb688, type: 3}
+  - {fileID: -8634238269081219574, guid: df63de50d14b50e488595eaf43703d9b, type: 3}
+  - {fileID: 1184989337297194300, guid: ad698ee3526a6d5449f2daca1b2f0a83, type: 3}
+  - {fileID: -4175974219577396543, guid: 2763876b2043c9d4f93e70da6263439c, type: 3}
+  - {fileID: 3214945960317518467, guid: a31c13d82548e614cae56eea933df5aa, type: 3}
   currentDish: 0
   cookingUIPanel: {fileID: 957730357}
   slideDuration: 0.9
@@ -2347,33 +2397,11 @@ MonoBehaviour:
   - {fileID: 1483589413}
   - {fileID: 230740562}
   - {fileID: 1972784318}
+  currentSelectedDishIndex: 0
   fadePanel: {fileID: 0}
   dayText: {fileID: 0}
   fadeDuration: 1
   displayDuration: 1.5
---- !u!114 &593100673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593100667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 603c8acd510b7da4181c956d67a3ab5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  dayManager: {fileID: 593100672}
-  dialogManager: {fileID: 593100671}
-  cookingStation: {fileID: 593100668}
-  cinemachineCamera: {fileID: 940767036}
-  cinemachineComposer: {fileID: 940767035}
-  OriginalCameraPosition: {fileID: 519420032}
-  currentCamera: {fileID: 519420031}
-  currentSelectedCustomerSlot: {fileID: 0}
-  zoomSize: 3
-  smoothSpeed: 4
-  currentState: 0
 --- !u!1 &614349438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5240,7 +5268,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1269303145479130495, guid: a31c13d82548e614cae56eea933df5aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8507,7 +8535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -9099911674440506468, guid: a31c13d82548e614cae56eea933df5aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
