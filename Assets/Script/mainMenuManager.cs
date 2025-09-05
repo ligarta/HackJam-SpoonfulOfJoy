@@ -12,6 +12,7 @@ public class mainMenuManager : MonoBehaviour
     [SerializeField] AudioSource clickAudio;
     [SerializeField] AudioClip SwipeSound;
     [SerializeField] AudioClip OpenDoor;
+    [SerializeField] GameObject CreditPanel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -19,7 +20,7 @@ public class mainMenuManager : MonoBehaviour
     }
     void Update()
     {
-        
+
     }
     public void gameStart()
     {
@@ -42,5 +43,19 @@ public class mainMenuManager : MonoBehaviour
                 SceneManager.LoadScene("IntroScene");
             });
         });
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+
+    public void toCredit()
+    {
+        CreditPanel.SetActive(true);
+    }
+    public void closeCredit()
+    {
+        CreditPanel.SetActive(false);
     }
 }

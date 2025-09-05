@@ -3,7 +3,8 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using System.Collections;
-using UnityEngine.InputSystem;  // new input system
+using UnityEngine.InputSystem;
+using Unity.VisualScripting;  // new input system
 
 public class DialogManager : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private String NextScene;
     [SerializeField] private String chatWith;
     public bool isCooking = false;
+    [SerializeField] GameObject MenuPanel;
+    bool isPause = false;
 
     void Start()
     {
@@ -71,7 +74,7 @@ public class DialogManager : MonoBehaviour
         if (currentNode == null || currentNode.lines == null)
         {
             Debug.LogError("[DialogManager] DisplayCurrentLine: currentNode or lines is null!");
-            if (!isCooking) 
+            if (!isCooking)
             {
                 EndDialog();
             }
@@ -87,7 +90,7 @@ public class DialogManager : MonoBehaviour
                 {
                     currentLine = currentNode.lines[currentNode.lines.Length - 1];
                 }
-                return; 
+                return;
             }
 
             if (currentNode.nextNode == null)
@@ -169,6 +172,7 @@ public class DialogManager : MonoBehaviour
 
     public void clicking()
     {
+        if (isPause) return;
         Debug.Log("[DialogManager] Clicking triggered.");
 
         if (audioSource != null && audioClick != null)
@@ -332,5 +336,22 @@ public class DialogManager : MonoBehaviour
         bool active = currentLine != null && currentNode != null && dialogPanel != null && dialogPanel.activeInHierarchy;
         Debug.Log($"[DialogManager] IsDialogActive check - currentLine!=null: {currentLine != null}, currentNode!=null: {currentNode != null}, dialogPanel.activeInHierarchy: {dialogPanel?.activeInHierarchy}");
         return active;
+    }
+    public void openPause()
+    {
+        MenuPanel.SetActive(true);
+        isPause = true;
+        Time.timeScale = 0f;
+    }
+    public void closePause()
+    {
+        Time.timeScale = 1f;
+        isPause = false;
+        MenuPanel.SetActive(false);
+    }
+    public void toMainMenu()
+    {
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuScene");
     }
 }

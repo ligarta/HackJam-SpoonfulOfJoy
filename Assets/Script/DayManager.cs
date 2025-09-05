@@ -4,6 +4,8 @@ using System;
 using TMPro;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
 
 public class DayManager : MonoBehaviour
 {
@@ -24,6 +26,8 @@ public class DayManager : MonoBehaviour
     [SerializeField] SpriteRenderer[] customerSpriteRenderer;
     [SerializeField] SpriteRenderer[] foodSpriteRenderer;
     [SerializeField] int currentSelectedDishIndex;
+
+
     void Start()
     {
         Debug.Log("[DayManager] Start() called");
@@ -262,7 +266,7 @@ public class DayManager : MonoBehaviour
     }
 
     private IEnumerator SetFoodSpriteAfterDialogStart()
-    { 
+    {
         // Wait a frame for dialog to start
         yield return null;
 
@@ -407,7 +411,7 @@ public class DayManager : MonoBehaviour
                 t -= Time.deltaTime;
                 panelColor.a = Mathf.Clamp01(t / fadeDuration);
                 fadePanel.color = panelColor;
-                dayText.color= new Color(1f, 1f, 1f, panelColor.a);
+                dayText.color = new Color(1f, 1f, 1f, panelColor.a);
                 yield return null;
             }
 
@@ -441,4 +445,20 @@ public class DayManager : MonoBehaviour
             }
         }
     }
+
+
+    void Update()
+    {
+        // if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1f)
+        // {
+        //     MenuPanel.SetActive(true);
+        //     Time.timeScale = 0f;
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0f)
+        // {
+        //     Time.timeScale = 1f;
+        //     MenuPanel.SetActive(false);
+        // }
+    }
+    
 }
