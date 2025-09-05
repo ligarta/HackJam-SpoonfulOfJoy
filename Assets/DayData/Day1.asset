@@ -15,6 +15,13 @@ MonoBehaviour:
   dayNumber: 1
   events:
   - eventName: AditPertama
+    dialogToStart: {fileID: 11400000, guid: 54eca4cb03ee37646b0f9b5a55747ab1, type: 2}
+    nextDialogNode: {fileID: 0}
+    isCookingEvent: 0
+    correctFoodDialog: {fileID: 0}
+    incorrectFoodDialog: {fileID: 0}
+    correctDishType: 00000000
+  - eventName: AditPertama
     dialogToStart: {fileID: 11400000, guid: 27ab62c61f74e6847bda6b8873e4e18e, type: 2}
     nextDialogNode: {fileID: 0}
     isCookingEvent: 0
@@ -37,13 +44,6 @@ MonoBehaviour:
     correctDishType: 
   - eventName: AditPertama
     dialogToStart: {fileID: 11400000, guid: c687b5f10d113b840997fef369cb860c, type: 2}
-    nextDialogNode: {fileID: 0}
-    isCookingEvent: 0
-    correctFoodDialog: {fileID: 0}
-    incorrectFoodDialog: {fileID: 0}
-    correctDishType: 
-  - eventName: AditPertama
-    dialogToStart: {fileID: 11400000, guid: 02062240cef335e4d84367dfc3bc4d53, type: 2}
     nextDialogNode: {fileID: 0}
     isCookingEvent: 0
     correctFoodDialog: {fileID: 0}

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System;
 using TMPro;
 using System.Collections;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine.UI;
 
 public class DayManager : MonoBehaviour
@@ -29,7 +28,21 @@ public class DayManager : MonoBehaviour
     {
         Debug.Log("[DayManager] Start() called");
         dialogManager.OnDisplayingNewLine += assignCurrentDialogText;
-        StartDay(0);
+        dialogManager.OnDisplayingNewLine += UpdateCharacterSprite;
+        dialogManager.OnCharacterLeave += HandleCharacterLeaving;
+        StartCoroutine(SwitchDayAnimation(0));
+        
+    }
+
+    
+
+    private void UpdateCharacterSprite(int a)
+    {
+        if (a >= 0 && a < customerSpriteRenderer.Length)
+        {
+            Debug.Log($"[DayManager] Updating character sprite to index={a}");
+            dialogManager.setCharacterSprite(customerSpriteRenderer[a]);
+        }
     }
     void assignCurrentDish(DishType a)
     {
@@ -37,6 +50,7 @@ public class DayManager : MonoBehaviour
     }
     void StartDay(int index)
     {
+
         Debug.Log($"[DayManager] StartDay() index={index}");
 
         if (index >= days.Count)
@@ -103,6 +117,7 @@ public class DayManager : MonoBehaviour
 
         // Get the place index from the first line of the dialog
         int currentselectedIndex = ev.dialogToStart.lines[0].placeIndex;
+        Debug.Log("DialogManager" + dialogManager.currentLineIndex);
         Debug.Log($"[DayManager] currentselectedIndex={currentselectedIndex}");
         if (ev.isCookingEvent)
         {
@@ -172,6 +187,30 @@ public class DayManager : MonoBehaviour
     {
         Debug.Log($"[DayManager] HandleCookingFinished() dish={dish}");
         currentDish = dish;
+    }
+    private void HandleCharacterLeaving(int index)
+    {
+        if (index < 0 || index >= customerSpriteRenderer.Length) return;
+
+        StartCoroutine(FadeOutCharacter(customerSpriteRenderer[index]));
+    }
+    private IEnumerator FadeOutCharacter(SpriteRenderer sr)
+    {
+        if (sr == null) yield break;
+
+        float duration = 1f;
+        float t = 0f;
+        Color startColor = sr.color;
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, t / duration);
+            sr.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            yield return null;
+        }
+
+        sr.color = new Color(startColor.r, startColor.g, startColor.b, 0f);
     }
 
     public void cookingConfirmed()
@@ -326,13 +365,14 @@ public class DayManager : MonoBehaviour
     private IEnumerator SwitchDayAnimation(int index)
     {
         Debug.Log($"[DayManager] SwitchDayAnimation() to day index {index}");
-        yield return new WaitForSeconds(2f);
 
+        // 1. Fade in ke hitam
         if (fadePanel != null)
         {
             fadePanel.gameObject.SetActive(true);
             Color panelColor = fadePanel.color;
             float t = 0f;
+
             while (t < fadeDuration)
             {
                 t += Time.deltaTime;
@@ -340,16 +380,26 @@ public class DayManager : MonoBehaviour
                 fadePanel.color = panelColor;
                 yield return null;
             }
+        }
 
-            if (dayText != null && index < days.Count)
-            {
-                dayText.text = $"Day {days[index].dayNumber}";
-                dayText.gameObject.SetActive(true);
-            }
+        // 2. Reset semua state dari hari sebelumnya
+        ResetDayState();
 
-            yield return new WaitForSeconds(displayDuration);
+        // 3. Update teks "Day X"
+        if (dayText != null && index < days.Count)
+        {
+            dayText.text = $"Day {days[index].dayNumber}";
+            dayText.gameObject.SetActive(true);
+        }
 
-            t = fadeDuration;
+        // 4. Tunggu sebentar dengan layar hitam + teks
+        yield return new WaitForSeconds(displayDuration);
+
+        // 5. Fade out (balik ke game)
+        if (fadePanel != null)
+        {
+            Color panelColor = fadePanel.color;
+            float t = fadeDuration;
             while (t > 0f)
             {
                 t -= Time.deltaTime;
@@ -361,6 +411,31 @@ public class DayManager : MonoBehaviour
             fadePanel.gameObject.SetActive(false);
         }
 
+        // 6. Mulai hari berikutnya
         StartDay(index);
+    }
+    private void ResetDayState()
+    {
+        Debug.Log("[DayManager] ResetDayState()");
+
+        // Reset dialog & order box
+        resetDialogBox();
+
+        // Kosongkan semua sprite
+        if (customerSpriteRenderer != null)
+        {
+            foreach (var sr in customerSpriteRenderer)
+            {
+                if (sr != null) sr.sprite = null;
+            }
+        }
+
+        if (foodSpriteRenderer != null)
+        {
+            foreach (var sr in foodSpriteRenderer)
+            {
+                if (sr != null) sr.sprite = null;
+            }
+        }
     }
 }

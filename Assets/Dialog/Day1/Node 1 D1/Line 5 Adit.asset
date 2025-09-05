@@ -22,3 +22,4 @@ MonoBehaviour:
   isAnonymous: 0
   isDoneEating: 0
   placeIndex: 1
+  isLeaving: 0

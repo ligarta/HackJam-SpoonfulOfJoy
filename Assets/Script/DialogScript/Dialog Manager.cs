@@ -9,6 +9,7 @@ public class DialogManager : MonoBehaviour
 {
     public event Action OnDialogFinished;
     public event Action<int> OnDisplayingNewLine;
+    public event Action<int> OnCharacterLeave;
     public GameObject panel;
     [SerializeField] private SpriteRenderer characterSprite;
 
@@ -30,7 +31,7 @@ public class DialogManager : MonoBehaviour
 
     [Header("Setting")]
     DialogNode currentNode;
-    int currentLineIndex = 0;
+    public int currentLineIndex = 0;
     bool isTyping = false;
     [SerializeField] private String NextScene;
     [SerializeField] private String chatWith;
@@ -145,8 +146,12 @@ public class DialogManager : MonoBehaviour
 
             yield return new WaitForSeconds(textSpeed);
         }
-
         isTyping = false;
+        if (currentLine != null && currentLine.isLeaving)
+        {
+            int leavingIndex = currentLine.placeIndex - 1;
+            OnCharacterLeave?.Invoke(leavingIndex);
+        }
     }
 
     void PlayAudio()

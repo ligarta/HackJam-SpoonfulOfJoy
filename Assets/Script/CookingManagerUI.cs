@@ -153,7 +153,9 @@ public class CookingUIManager : MonoBehaviour
         if (cookingSequenceImages == null || cookingSequenceImages.Count == 0) return;
 
         foreach (var img in cookingSequenceImages)
+        {
             img.SetActive(false);
+        }
 
         float delay = 0f;
         for (int i = 0; i < cookingSequenceImages.Count; i++)
@@ -161,8 +163,20 @@ public class CookingUIManager : MonoBehaviour
             int index = i;
             LeanTween.delayedCall(delay, () =>
             {
-                cookingSequenceImages[index].SetActive(true);
+                var go = cookingSequenceImages[index];
+                go.SetActive(true);
+                CanvasGroup cg = go.GetComponent<CanvasGroup>();
+                if (cg == null) cg = go.AddComponent<CanvasGroup>();
+
+                cg.alpha = 0;
+
+                RectTransform rt = go.GetComponent<RectTransform>();
+                Vector3 startPos = rt.anchoredPosition + new Vector2(100f, 0f); 
+                rt.anchoredPosition = startPos;
+                LeanTween.alphaCanvas(cg, 1f, 0.5f).setEaseOutCubic();
+                LeanTween.move(rt, rt.anchoredPosition - new Vector2(100f, 0f), 0.5f).setEaseOutCubic();
             });
+
             delay += sequenceDelay;
         }
 
