@@ -375,17 +375,17 @@ public class DayManager : MonoBehaviour
         if (orderTextPanels != null && currentIndex < orderTextPanels.Length)
         {
             orderTextPanels[0].SetActive(true);
-            dialogManager.SetDialogPanel(orderTextPanels[currentIndex]);
-            cookingStation.dialogPanel = orderTextPanels[currentIndex];
-            cookingManagerUI.dialogPanel = orderTextPanels[currentIndex];
+            dialogManager.SetDialogPanel(orderTextPanels[0]);
+            cookingStation.dialogPanel = orderTextPanels[0];
+            cookingManagerUI.dialogPanel = orderTextPanels[0];
         }
 
         if (orderDialogtextnametext != null && currentIndex < orderDialogtextnametext.Length)
         {
-            dialogManager.SetDialogSpeakerNameText(orderDialogtextnametext[currentIndex]);
+            dialogManager.SetDialogSpeakerNameText(orderDialogtextnametext[0]);
         }
 
-        dialogManager.SetdialogText(orderText[currentIndex]);
+        dialogManager.SetdialogText(orderText[0]);
     }
 
     [Header("Day Transition UI")]
