@@ -146,7 +146,7 @@ public class DayManager : MonoBehaviour
         if (ev.isCookingEvent)
         {
             Debug.Log("[DayManager] Setting up cooking event");
-            currentSelectedDishIndex = currentEventIndex - 1;
+            currentSelectedDishIndex = currentselectedIndex - 1;
             assignCurrentOrderDialogText(currentselectedIndex - 1);
         }
         else
