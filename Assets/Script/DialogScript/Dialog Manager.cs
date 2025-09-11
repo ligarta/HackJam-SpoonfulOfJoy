@@ -38,6 +38,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private String chatWith;
     public bool isCooking = false;
     [SerializeField] GameObject MenuPanel;
+    [SerializeField] GameObject RecipePanel;
     bool isPause = false;
 
     void Start()
@@ -353,5 +354,16 @@ public class DialogManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void openRecipe()
+    {
+        isCooking = true;
+        RecipePanel.SetActive(true);
+    }
+    public void closeRecipe()
+    {
+        isCooking = false;
+        RecipePanel.SetActive(false);
     }
 }
